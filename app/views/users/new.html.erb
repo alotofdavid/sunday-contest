@@ -1,0 +1,43 @@
+<% if session[:currentUserID] == nil %>
+<% if @newUser.errors.any? %>
+      <ul>
+        <% @newUser.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+<%= form_tag("/users", method: "post") do %>
+	<center>
+	<table>
+		<tr>
+			<td><%= label_tag("First Name:") %></td>
+			<td><%= text_field_tag(:firstName) %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag("Last Name:") %></td>
+			<td><%= text_field_tag(:lastName) %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag("Login:") %></td>
+			<td><%= text_field_tag(:login) %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag("Password:") %></td>
+			<td><%= password_field(:passwordBox1, :password1) %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag("Confirm Password:") %></td>
+			<td><%= password_field(:passwordBox2, :password2) %></td>
+		</tr>
+		<tr>
+			<td>
+				<%= submit_tag("Register") %>
+			</td>
+		</tr>
+	</table>	
+</center>
+<% end %>
+<% else %>
+You are already logged in.
+<% end %>
+

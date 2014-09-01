@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-top: 50px;
+}
+a:hover {
+    text-decoration:none;
+}
+#content {
+  padding-bottom:150px;
+}

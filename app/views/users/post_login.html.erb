@@ -1,0 +1,14 @@
+<% if session[:currentUserID] == nil then %>
+Invalid login credentials. Please try again.
+<%= form_tag("post_login", method: "post") do %>
+	<%= label_tag("Login:") %>
+	<%= text_field_tag(:text_val) %>
+
+	<%= label_tag("Password:") %>
+	<%= password_field(:passwordBox, :password, size: 20) %>	
+
+	<%= submit_tag("submit") %>
+<% end %>
+<% else %>
+You are already logged in.
+<% end %>

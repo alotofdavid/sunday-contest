@@ -1,0 +1,17 @@
+<div class = "oldDiv">
+<% if session[:currentUserID] == nil then %>
+Type in your username and password.
+<%= form_tag("post_login", method: "post") do %>
+	<%= label_tag("Login:") %>
+	<%= text_field_tag(:text_val) %>
+
+	<%= label_tag("Password:") %>
+	<%= password_field(:passwordBox, :password, size: 20) %>	
+	<%= submit_tag("submit") %>
+	<br/>
+	<%= link_to("Register new account", "/users/new") %>
+<% end %>
+<% else %>
+You are already logged in.
+<% end %>
+</div>
