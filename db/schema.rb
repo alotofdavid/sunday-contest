@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910094325) do
+ActiveRecord::Schema.define(version: 20140910104955) do
 
   create_table "competitions", force: true do |t|
     t.datetime "end_date"
