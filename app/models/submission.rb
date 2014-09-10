@@ -1,4 +1,4 @@
 class Submission < ActiveRecord::Base
-	belong_to :event
-	belong_to :user
+	belongs_to :event
+	belongs_to :user
 end
