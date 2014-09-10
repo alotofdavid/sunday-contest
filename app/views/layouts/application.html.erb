@@ -35,16 +35,17 @@
     </div>
     <div class="collapse navbar-collapse" id="drop-down-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to("Home", '/')%></li>
-        <li><%= link_to("Leaders", '/')%></li>
-        <li><%= link_to("Archives", "/comps/")%></li>
-        <li><%= link_to("Users", '/')%></li>
+        <li><%= link_to("Contests", '/contests')%></li>
+        <li><%= link_to("Ranking", '/ranking')%></li>
+        <li><%= link_to("Archives", "/archive/")%></li>
+        <li><%= link_to("Users", '/users')%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if session[:currentUserID] != nil then %>
             <%  currentUser = User.find_by_id(session[:currentUserID]) %>
       
-            <li><%= link_to "Hello #{currentUser.first_name}", "/users/#{currentUser.id}" %></li>
+            <li><%= link_to "#{currentUser.first_name}", "/users/#{currentUser.id}" %></li>
+             <li><%= link_to "Account", "/" %></li>
             <li><%= link_to "Logout", "/users/logout" %></li>
       <% else %>
         <li><%= link_to "Login", "/users/login"%></li>

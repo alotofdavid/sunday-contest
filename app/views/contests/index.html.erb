@@ -1,0 +1,15 @@
+<h2>The events for this week are: </h2>
+<h5>Your solves must be completed by <%= @endDate.to_s %></h5>
+<% if session[:currentUserID] == nil then %>
+	<h5>You must log in to complete your solves </h5>
+<%end%>
+<% for  event in @eventArray %>
+<h3> <li><%= event.event_name %></li></h3>
+	<% if session[:currentUserID] != nil then %>
+		<input type = "button" value = "Do Yo Solves"></input>
+	 	This button should take us to a timer
+	<%end%>
+<% end %>
+<p>
+We also need to make sure that the user logged in has not already competed in these events. 
+</p>

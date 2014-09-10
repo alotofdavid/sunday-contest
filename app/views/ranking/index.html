@@ -1,0 +1,48 @@
+<h3>Sunday Contest Leaderboard</h3>
+<td valign='bottom'><div class='space'><label for='eventId'>Event:<br /><select class='drop' id='eventId' name='eventId'>
+<option value=''>All</option>
+<option value=''></option>
+<option value='333'>Rubik&#039;s Cube</option>
+<option value='444'>4x4 Cube</option>
+<option value='555'>5x5 Cube</option>
+<option value='222'>2x2 Cube</option>
+<option value='333bf'>3x3 blindfolded</option>
+<option value='333oh'>3x3 one-handed</option>
+<option value='333fm'>3x3 fewest moves</option>
+<option value='333ft'>3x3 with feet</option>
+<option value='minx'>Megaminx</option>
+<option value='pyram'>Pyraminx</option>
+<option value='sq1'>Square-1</option>
+<option value='clock'>Rubik&#039;s Clock</option>
+<option value='skewb'>Skewb</option>
+<option value='666'>6x6 Cube</option>
+<option value='777'>7x7 Cube</option>
+<option value='444bf'>4x4 blindfolded</option>
+<option value='555bf'>5x5 blindfolded</option>
+<option value='333mbf'>3x3 multi blind</option>
+</select></label></div></td>	
+<% counter = 1%>
+<table style="width:100%">
+<tr class = "topRow"><td style="width:5%" >Rank</td><td style="width:10%">ELO</td><td>Name</td></tr>
+<% @all_users.each do |userName| %>
+<tr>
+<td><%= counter.to_s + ". " %> </td>
+<td>N/A</td>
+<td> <%= link_to "#{userName.first_name} #{userName.last_name}", "users/#{userName.id}" %></tr>
+</tr>
+</li>
+<% end %>
+</table>
+Basically all we need to do is sort the User.all array by some ELO algorithm, and use the search bar to filter the results
+
+<style>
+.topRow{
+	background-color: lightgrey	
+}
+td{
+	border-style: solid;
+    border-color: darkgrey;
+    padding:10px;
+}
+ 
+</style>

@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910044215) do
+ActiveRecord::Schema.define(version: 20140910094325) do
 
   create_table "competitions", force: true do |t|
     t.datetime "end_date"
+    t.string   "featured_event"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
     t.string   "scoring_type"
+    t.string   "event_name"
+    t.integer  "competition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "scrambles", force: true do |t|
     t.string   "scramble_string"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +46,8 @@ ActiveRecord::Schema.define(version: 20140910044215) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "submissions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "competition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
