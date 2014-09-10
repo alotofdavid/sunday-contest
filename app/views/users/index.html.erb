@@ -1,6 +1,6 @@
 	<div class = "oldDiv">
-	<h3>This is a list of all the users of this photo sharing application </h3>
-	<% for userName in @all_users %>
-	<li><%= link_to(userName.first_name + " " + userName.last_name,"users/" + userName.id.to_s()) %></li> 
+	<h3>This is a list of all the competitors for the Sunday Contest</h3>
+	<% @all_users.each do |userName| %>
+    <li><%= link_to "#{userName.first_name} #{userName.last_name}", "users/#{userName.id}" %></li> 
 	<% end %>
 	</div>

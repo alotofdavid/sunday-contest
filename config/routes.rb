@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#index'  
+
   resources :users do  
     post :post_login, on: :collection
     get :post_register, on: :collection
@@ -6,4 +8,8 @@ Rails.application.routes.draw do
     #switch this to post instead of get
     get :logout, on: :collection
   end
+
+  get '/comp/:id', to: 'competitions#show'
+  get '/comps/', to: 'competitions#index'
+
 end

@@ -31,31 +31,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Weekly FMC</a>
+      <a class="navbar-brand" href="/">Sunday Contest</a>
     </div>
     <div class="collapse navbar-collapse" id="drop-down-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-trophy"></i> Leaders</a></li>
-        <li><a href="#"><i class="fa fa-archive"></i> Archives</a></li>
-        <li><a href="#"><i class="fa fa-users"></i> Users</a></li>
+        <li><%= link_to("Home", '/')%></li>
+        <li><%= link_to("Leaders", '/')%></li>
+        <li><%= link_to("Archives", "/comps/")%></li>
+        <li><%= link_to("Users", '/')%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if session[:currentUserID] != nil then %>
-          	<%	currentUser = User.find_by_id(session[:currentUserID]).first_name %>
-			
-            <li><a href="#">Hello <%= currentUser %>! <i class="fa fa-cog"></i></a></li>
-            <li><a href="#">Logout</a></li>
-          <%= link_to("Logout","/users/logout")  %>
-		  <% else %>
-		   	<%= link_to("Login", "/users/login") %>
-		  <% end %>
+            <%  currentUser = User.find_by_id(session[:currentUserID]) %>
+      
+            <li><%= link_to "Hello #{currentUser.first_name}", "/users/#{currentUser.id}" %></li>
+            <li><%= link_to "Logout", "/users/logout" %></li>
+      <% else %>
+        <li><%= link_to "Login", "/users/login"%></li>
+      <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
   <div class="container" id="content">
-  	<%= yield %>
+    <%= yield %>
   </div>
   <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">

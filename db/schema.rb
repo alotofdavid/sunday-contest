@@ -14,16 +14,19 @@
 ActiveRecord::Schema.define(version: 20140910044215) do
 
   create_table "competitions", force: true do |t|
+    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
+    t.string   "scoring_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "scrambles", force: true do |t|
+    t.string   "scramble_string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
