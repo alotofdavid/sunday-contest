@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   resources :archive
   resources :ranking
-  get '/comp/:id', to: 'competitions#show'
-  get '/comps/', to: 'competitions#index'
+  get '/comp/:id', to: 'contest#show'
+  get '/comp/', to: 'contest#index'
 
 end

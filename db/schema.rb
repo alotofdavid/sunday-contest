@@ -13,14 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140911032359) do
 
-  create_table "competitions", force: true do |t|
+  create_table "contests", force: true do |t|
     t.datetime "end_date"
     t.string   "featured_event"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "contests", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140911032359) do
 
   create_table "submissions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "competition_id"
+    t.integer  "contest_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"

@@ -1,10 +1,9 @@
 class ContestsController < ApplicationController
 	def index
-		@currentCompetition = Competition.last
-		
-			@endDate = @currentCompetition.end_date
-			@eventArray = @currentCompetition.events.sort_by{|word| word}##
-			@featuredEvent = @currentCompetition.featured_event
+		@currentCompetition = Contest.last
+		@endDate = @currentCompetition.end_date
+		@eventArray = @currentCompetition.events.sort_by{|word| word}##
+		@featuredEvent = @currentCompetition.featured_event
 	end
 	def show
 		@eventName = Event.find(params[:id]).event_name
@@ -25,7 +24,7 @@ class ContestsController < ApplicationController
 		puts params[:currentUserID]; 
 		newSubmission = Submission.new
 		newSubmission.user_id = params[:currentUserID]
-		newSubmission.competition_id = Competition.last.id
+		newSubmission.contest_id = Contest.last.id
 		newSubmission.event_id = params[:eventId]
 		newSubmission.time_list = params[:dataArray].to_s
 		newSubmission.result = params[:result];
