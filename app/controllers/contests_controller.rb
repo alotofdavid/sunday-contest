@@ -8,7 +8,12 @@ class ContestsController < ApplicationController
 	end
 	def show
 		@eventName = Event.find(params[:id]).event_name
-		puts @eventName
+		@event = Event.find(params[:id])
+		if Event.find(params[:id]).finished_people == nil then
+			Event.find(params[:id]).finished_people = [session[:currentUserID]];
+		else
+			Event.find(params[:id]).finished_people << session[:currentUserID]
+		end
 		@scrambleArray = Array.new
 		for scramble in Event.find(params[:id]).scrambles do
 			@scrambleArray << scramble.scramble_string

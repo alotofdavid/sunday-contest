@@ -58,7 +58,7 @@ function submitButtonHandler(){
         timeStrings.push(pretty(times[i]));
       }
       
-      post("/contests/post_submit",{dataArray :timeStrings,currentUserId :userId, eventId :eventId, result :endingAverage});
+      post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage});
     }
    
 function post(path, params, method) {

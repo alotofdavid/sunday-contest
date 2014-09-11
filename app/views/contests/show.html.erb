@@ -1,4 +1,13 @@
+<% shouldShowTimer = true; %>
+<% for submission in @event.submissions %>
+  <% if submission.user_id == session[:currentUserID] || session[:currentUserID] == nil %>
+    <% shouldShowTimer = false %>
+  <% end %>
+<% end %>   
 
+
+
+<% if shouldShowTimer %>
 <html>
  <head>
  <%= javascript_include_tag "qqtimer.js" %>
@@ -6,11 +15,10 @@
 <%= javascript_tag do %>
     saveScrambleArray(<%= raw @scrambleArray.to_json %>);
     setUserId(<%= session[:currentUserID] %>);
-    setEventId(<%= params[:id] %>);
-    
+    setEventId(<%= params[:id] %>); 
 <% end %>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>qqTimer</title>
+  <title>Timer</title>
 </head>
 <body onload="initialize(true, true);">
  <div id="container">
@@ -92,7 +100,14 @@
  </div><div id="footer">&nbsp;</div>
  <div id = "submitButton"></div>
 </body></html>
-
+<% else %>
+<body>
+<%end %>
+<% if session[:currentUserID] == nil then%>
+  <h3>You must log in to do your solves </h3>
+<% elsif !shouldShowTimer %>
+<h3> You have already done your solves for this event this week </h3>
+<% end %>
 
 
 

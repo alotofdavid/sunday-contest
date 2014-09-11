@@ -1,14 +1,22 @@
 <h2>The events for this week are: </h2>
-<h5>Your solves must be completed by <%= @endDate.to_s %></h5>
 <% if session[:currentUserID] == nil then %>
 	<h5>You must log in to complete your solves </h5>
 <%end%>
 <% for  event in @eventArray %>
-<h3> <li><%= event.event_name %></li></h3>
-	<% if session[:currentUserID] != nil then %>
-		<a href = "/contests/<%= "#{event.id}" %>"><input type = "button" value = "Click here to do your solves"></input></a>
-	<%end%>
+<% shouldShowButton = true; %>
+	<% for submission in event.submissions %>
+		<% if submission.user_id == session[:currentUserID]  %>
+			<% shouldShowButton = false %>
+		<% end %>
+	<% end %>		
+	<h3> <li><%= event.event_name %></li></h3>
+		<% if session[:currentUserID] != nil  then %>
+			<% if shouldShowButton  then %>
+			<a href = "/contests/<%= "#{event.id}" %>"><input type = "button" value = "Click here to do your solves"></input></a>
+			<% else %>
+				You have already competed in this event this week.
+			<% end>%
+		<%end%>	
 <% end %>
-<p>
-We also need to make sure that the user logged in has not already competed in these events. 
-</p>
+<% end %>
+<h5>Your solves must be completed by <%= @endDate.to_s %></h5>
