@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     #switch this to post instead of get
     get :logout, on: :collection
   end
-  resources :contests
+  resources :contests do
+    post :post_submit, on: :collection
+  end
   resources :archive
   resources :ranking
   get '/comp/:id', to: 'competitions#show'

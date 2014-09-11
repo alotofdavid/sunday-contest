@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910104955) do
+ActiveRecord::Schema.define(version: 20140911010346) do
 
   create_table "competitions", force: true do |t|
     t.datetime "end_date"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140910104955) do
     t.integer  "competition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
+    t.float    "result"
+    t.string   "time_list"
   end
 
   create_table "users", force: true do |t|

@@ -1,0 +1,98 @@
+
+<html>
+ <head>
+ <%= javascript_include_tag "qqtimer.js" %>
+
+<%= javascript_tag do %>
+    saveScrambleArray(<%= raw @scrambleArray.to_json %>);
+    setUserId(<%= session[:currentUserID] %>);
+    setEventId(<%= params[:id] %>);
+    
+<% end %>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>qqTimer</title>
+</head>
+<body onload="initialize(true, true);">
+ <div id="container">
+ <table border="1" cellpadding="5" cellspacing="0" width="100%">
+  <tbody><tr>
+   <td colspan="3" id="menu" bgcolor="#4294CF">
+    <table cellpadding="2" cellspacing="0" width="100%">
+     <tbody><tr>
+      <td hidden = true>
+       <span class="hide"><font face="Arial" size="3">Scramble type:</font></span>
+       <select id="optbox" size="1" onchange="rescramble();"></select>
+       <select id="optbox2" size="1" onchange="rescramble();"></select>
+      </td>
+      <td hidden = true>
+       <span class="hide"><font face="Arial" size="3">Scramble length:</font></span>
+       <input value="25" id="leng" size="3" maxlength="3" onchange="rescramble();">
+      </td>
+	  <td hidden = true><span class="hide"><font face="Arial" size="3">Session:</font></span>
+	   <select id="sessbox" size="1" onchange="getSession(); loadList(); getStats(true);"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+      <td hidden = true><a href="http://mzrg.com/qqtimer/megadoc.html" target="_blank" style="color: black;" class="a">Help!</a></td>
+      <h3>&nbsp;&nbsp;Solves for the <%= @eventName %> event</h3>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="3">
+    <span id="scramble" style="font-size: 16px;">&nbsp; </span><span id="getlast" hidden = true onclick="getlastscramble()" class="a">get last scramble</span>
+    <span id="debug"></span>
+   </td>
+  </tr>
+  <tr>
+   <td align="center">
+    <span id="showOpt" onclick="toggleOptions()" class="a">show</span> timer options<br>
+    <span id="theTime" style="font-family: sans-serif; font-weight: bold; font-size: 2em; ">ready</span><br>
+    that time was: <span onclick="changeNotes(0);" class="a">no penalty</span> <span onclick="changeNotes(2);" class="a">+2</span> <span onclick="changeNotes(1);" class="a">DNF</span> | <span onclick="comment();" class="a">leave comment</span>
+   </td>
+   <td style="width: 15em;">
+    <div id="theList" style="overflow-y: scroll; height: 16em;"></div>
+   </td>
+   <td style="width: 15em;">
+    <div id="stats" style="overflow-y: scroll; height: 16em;"></div>
+   </td>
+  </tr>
+  <tr id="options" style="display: none;"><td colspan="3">
+   <table width="100%"><tbody><tr><td align="left">
+    timer updating is <span id="toggler" onclick="toggleTimer()" class="a">on</span><br>
+    timer precision is <span id="millisec" onclick="toggleMilli()" class="a">1/100 sec</span><br>
+    bld mode is <span id="bldmode" onclick="toggleBld()" class="a">off</span><br>
+    entering in times with <span id="inputTimes" onclick="toggleInput()" class="a">timer</span><br>
+    <span onclick="increaseSize()" class="a">increase</span>/<span onclick="decreaseSize()" class="a">decrease</span> timer size<br>
+    <span onclick="increaseScrambleSize()" class="a">increase</span>/<span onclick="decreaseScrambleSize()" class="a">decrease</span> scramble size<br>
+    using <span id="inspec" onclick="toggleInspection()" class="a">no</span> inspection<br>
+    <span id="avgn" onclick="toggleAvgN()" class="a">not using</span> average of <input id="avglen" value="50" size="4" maxlength="4" onchange="changeAvgN()">&nbsp;<br>
+    <span id="mon" onclick="toggleMoN()" class="a">not using</span> mean of <input id="molen" value="3" size="4" maxlength="4" onchange="changeMoN()">&nbsp;<br>
+    style: <span onclick="setCookie(&#39;style&#39;,0);window.location.reload();" class="a">Gottlieb</span> |
+           <span onclick="setCookie(&#39;style&#39;,1);window.location.reload();" class="a">Tamanas</span>
+   </td><td align="right">
+    monospace scrambles are <span id="monospace" onclick="toggleMono()" class="a">off</span><br>
+    top bar color: #<input id="tcol" value="4294CF" size="6" maxlength="6" onchange="changeColor()"><br>
+    background color: #<input id="bcol" value="white" size="6" maxlength="6" onchange="changeColor()"><br>
+    text color: #<input id="fcol" value="black" size="6" maxlength="6" onchange="changeColor()"><br>
+    link color: #<input id="lcol" value="blue" size="6" maxlength="6" onchange="changeColor()"><br>
+    highlight color: #<input id="hcol" value="yellow" size="6" maxlength="6" onchange="changeColor()"><br>
+    memorization colour: #<input id="memcol" value="green" size="6" maxlength="6" onchange="changeColor()"><br>
+    <span class="a" onclick="resetColors()">reset</span> colors to default<br>
+	<span class="a" onclick="toggleNightMode()">toggle</span> night mode<br>
+   </td></tr></tbody></table>
+  </td></tr>
+  <tr id="avgdata" style="display: none; ">
+  </tr>
+  <tr id="import" style="display: none;"> 
+   <td style="border: medium none ;"> 
+    <textarea cols="50" rows="10" id="importedTimes"></textarea> 
+    <div onclick="importTimes();" class="a">import</div> 
+   </td> 
+  </tr>
+ </tbody></table>
+ </div><div id="footer">&nbsp;</div>
+ <div id = "submitButton"></div>
+</body></html>
+
+
+
+

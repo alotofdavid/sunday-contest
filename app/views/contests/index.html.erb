@@ -6,8 +6,7 @@
 <% for  event in @eventArray %>
 <h3> <li><%= event.event_name %></li></h3>
 	<% if session[:currentUserID] != nil then %>
-		<input type = "button" value = "Do Yo Solves"></input>
-	 	This button should take us to a timer
+		<a href = "/contests/<%= "#{event.id}" %>"><input type = "button" value = "Click here to do your solves"></input></a>
 	<%end%>
 <% end %>
 <p>
