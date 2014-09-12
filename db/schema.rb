@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911032359) do
+ActiveRecord::Schema.define(version: 20140912002724) do
 
   create_table "contests", force: true do |t|
     t.datetime "end_date"
@@ -20,8 +20,13 @@ ActiveRecord::Schema.define(version: 20140911032359) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "events" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "events", force: true do |t|
+    t.string   "scoring_type"
+    t.string   "event_name"
+    t.integer  "contest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "scrambles", force: true do |t|
     t.string   "scramble_string"
