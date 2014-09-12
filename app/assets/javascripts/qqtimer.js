@@ -26,6 +26,7 @@ var finishedAllSolves = false;
 var userId = -1;
 var eventId = -1;
 var endingAverage = -1;
+var best_time = "";
 function $(str){return document.getElementById(str);}
 
 
@@ -58,7 +59,7 @@ function submitButtonHandler(){
         timeStrings.push(pretty(times[i]));
       }
       
-      post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage});
+      post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage, best_time :best_time});
     }
    
 function post(path, params, method) {
@@ -1077,6 +1078,7 @@ function getAvg(start, nsolves) {
   sum += thisTime;
  }
  var avg = (sum - best - worst) / (nsolves - 2);
+ best_time = pretty(best);
  endingAverage = pretty(avg);
  return [((numdnf < 2) ? avg : -1), bestindex, worstindex];
 }

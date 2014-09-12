@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :contests do
     post :post_submit, on: :collection
   end
-  resources :archive
+  resources :archive 
   resources :ranking
   get '/comp/:id', to: 'contest#show'
   get '/comp/', to: 'contest#index'
