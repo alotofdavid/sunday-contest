@@ -2,6 +2,7 @@ class ContestsController < ApplicationController
 	def index
 		@currentCompetition = Contest.last
 		@endDate = @currentCompetition.end_date
+		puts @endDate
 		@eventArray = @currentCompetition.events.sort_by{|word| word}##
 		@featuredEvent = @currentCompetition.featured_event
 	end

@@ -224,7 +224,7 @@ function rescramble2() {
 */
 function rescramble() {
  len = $('leng').value;
- if(numSolves < 12){
+ if(numSolves < SCScrambleArray.length){
     $('scramble').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;Scramble: " + SCScrambleArray[numSolves];
     numSolves++;
   }else{
