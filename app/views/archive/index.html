@@ -1,0 +1,4 @@
+<h3>These are the archives of all past sunday contests </h3>
+<% for contest in @allContests do %>
+	<li> <%= link_to("Results for the contest on the week of #{ contest.created_at.strftime("%B %d, %Y")}","/archive/#{contest.id}") %></li>
+<% end %>

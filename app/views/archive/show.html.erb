@@ -1,0 +1,47 @@
+<% for event in @allEvents do %>
+<h3>Results for the <%= event.event_name %> Event</h3>
+	<% @sortedSubmissions = Array.new %>
+	<% @sortedSubmissions = event.submissions.sort { |a,b|
+			a.result <=> b.result
+		} %>
+	<table>
+			<td class = "top">Rank</td>
+			<td class = "top">Name</td>
+			<td class = "top">Best</td>
+			<td class = "top">Average</td>
+			<td class = "top">Times</td>
+			<td class = "top">Elo</td>
+			<td class = "top">&#916;Elo</td>
+		<% for submission in @sortedSubmissions do %>
+			<tr>
+				<td> Rank</td>
+				<td> <%= submission.user.first_name + " " + submission.user.last_name %></td>
+				<td><%= submission.best_time %> </td>
+				<td><%= submission.result %> </td>
+				<td> <%= submission.time_list %></td>
+				<td>ELO </td>
+				<td>DELTA ELO </td>
+			</tr>	
+		<% end %>	
+	</table>
+<% end %>
+<style>
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    padding-top:100px;
+  
+}
+
+tr {
+    height: 50px;
+}
+td{
+	border: 1px solid black;
+	padding: 10px;
+}
+.top{
+	background-color: lightgrey;
+}
+</style>

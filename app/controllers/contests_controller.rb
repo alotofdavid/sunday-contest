@@ -2,21 +2,16 @@ class ContestsController < ApplicationController
 	def index
 		@currentCompetition = Contest.last
 		@endDate = @currentCompetition.end_date
-		puts @endDate
 		@eventArray = @currentCompetition.events.sort_by{|word| word}##
 		@featuredEvent = @currentCompetition.featured_event
 	end
 	def show
 		@eventName = Event.find(params[:id]).event_name
 		@event = Event.find(params[:id])
-		if Event.find(params[:id]).finished_people == nil then
-			Event.find(params[:id]).finished_people = [session[:currentUserID]];
-		else
-			Event.find(params[:id]).finished_people << session[:currentUserID]
-		end
 		@scrambleArray = Array.new
 		for scramble in Event.find(params[:id]).scrambles do
 			@scrambleArray << scramble.scramble_string
+			puts scramble.scramble_string
 		end
 	end
 	def post_submit
@@ -28,7 +23,8 @@ class ContestsController < ApplicationController
 		newSubmission.contest_id = Contest.last.id
 		newSubmission.event_id = params[:eventId]
 		newSubmission.time_list = params[:dataArray].to_s
-		newSubmission.result = params[:result];
+		newSubmission.result = params[:result]
+		newSubmission.best_time = params[:best_time]
 		newSubmission.save()
 		redirect_to "/contests"		
 	end
