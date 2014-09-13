@@ -1,8 +1,8 @@
 <div class = "row">
 	<% if Contest.last %>
 		<% Contest.last.events.each do |event| %>
-			<div class="col-lg-4">
-				<h2><a href="/contest/<%=event.id%>"><%= event.event_name %></a></h2>
+      <div class="col-lg-<%= 12/Contest.last.events.length %>">
+				<h2><a href="/contests/<%=event.id%>"><%= event.event_name %></a></h2>
 			</div>
 		<% end %>
 	<% else %>
