@@ -1,3 +1,15 @@
+<div class = "row">
+	<% if Contest.last %>
+		<% Contest.last.events.each do |event| %>
+			<div class="col-lg-4">
+				<h2><a href="/contest/<%=event.id%>"><%= event.event_name %></a></h2>
+			</div>
+		<% end %>
+	<% else %>
+
+	<% end %>
+</div>
+
 <div class = "header">
 	<h1>Welcome to SundayContest.com</h1>
 	<h2>Sponsored by Speedcubeshop.com</h2>

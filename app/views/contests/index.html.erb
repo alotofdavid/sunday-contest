@@ -2,7 +2,7 @@
 <% if session[:currentUserID] == nil then %>
 	<h5>You must log in to complete your solves </h5>
 <%end%>
-<% for  event in @eventArray %>
+<% for event in @eventArray %>
 <% shouldShowButton = true; %>
 	<% for submission in event.submissions %>
 		<% if submission.user_id == session[:currentUserID]  %>
