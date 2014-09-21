@@ -1,22 +1,42 @@
-<h2>The events for this week are: </h2>
+<h2>Finish these events by Sunday:</h2>
 <% if session[:currentUserID] == nil then %>
 	<h5>You must log in to complete your solves </h5>
 <%end%>
-<% for event in @eventArray %>
-<% shouldShowButton = true; %>
-	<% for submission in event.submissions %>
+<div class="row">
+	<% for event in @eventArray %>
+	<% shouldShowButton = true; %>
+	<% for submission in event.submissions %> 
 		<% if submission.user_id == session[:currentUserID]  %>
 			<% shouldShowButton = false %>
 		<% end %>
-	<% end %>		
-	<h3> <li><%= event.event_name %></li></h3>
-		<% if session[:currentUserID] != nil  then %>
-			<% if shouldShowButton  then %>
-			<a href = "/contests/<%= "#{event.id}" %>"><input type = "button" value = "Click here to do your solves"></input></a>
-			<% else %>
-				You have already competed in this event this week.
-			<% end>%
-		<%end%>	
-<% end %>
-<% end %>
+	<% end %>	
+
+      <div class="col-lg-<%= 12/@eventArray.length %>">
+			<% if session[:currentUserID] != nil  then %>
+				<% if shouldShowButton  then %>
+					<a href="/contests/<%=event.id%>">
+			<div class="panel panel-primary">
+				<% else %> 
+					<div class="panel panel-success">
+				<% end %>
+				<% else %>
+				<div class="panel panel-warning">
+			<% end %>
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul>
+					<li>Average of 12</li>
+			    </ul>
+			  </div>
+			</div>	
+			<% if session[:currentUserID] != nil  then %>
+				<% if shouldShowButton  then %>
+					</a>
+				<% end %>
+			<% end %>
+	</div>
+	<% end %>
+</div>
 <h5>Your solves must be completed by <%= @endDate.to_s %></h5>

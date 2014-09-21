@@ -1,8 +1,24 @@
+<img class="bg" src="welcome-splash.jpg">
+<br>
 <div class = "row">
 	<% if Contest.last %>
 		<% Contest.last.events.each do |event| %>
       <div class="col-lg-<%= 12/Contest.last.events.length %>">
-				<h2><a href="/contests/<%=event.id%>"><%= event.event_name %></a></h2>
+			<a style="color: #FFFFFF; text-decoration: none;" href="/contests/<%=event.id%>">
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul>
+					<li>Average of 12</li>
+					<% if Contest.last.featured_event == event %>
+					<li>Featured Event!</li
+					<% end %>
+			    </ul>
+			  </div>
+			</div>	
+			</a>
 			</div>
 		<% end %>
 	<% else %>
@@ -10,13 +26,16 @@
 	<% end %>
 </div>
 
-<div class = "header">
-	<h1>Welcome to SundayContest.com</h1>
-	<h2>Sponsored by Speedcubeshop.com</h2>
+
+<div class = "row">
+	<div class="col-lg-8">
+	<div class = "well">
+	<h3>What is the Sunday Contest?</h3>
+	<h6>
+	The Sunday Contest is a place where speedcubers can compete against other cubers for a chance to win cool prizes, improve their personal rank, and practice new events. 
+	<br><br>
+	The Sunday Contest started in 2004 as a weekly unofficial competition hosted by Tyson Mao, and was later hosted by Jon Morris in 2005. </h6>
+	</div>
 </div>
-<div class = "about">
-	<h3>About sunday contest:</h3>
-	<p>
-	The Sunday Contest started in 2004 as a weekly unofficial competition hosted by Tyson Mao, and was later hosted by Jon Morris in 2005. </p>
 
 </div>

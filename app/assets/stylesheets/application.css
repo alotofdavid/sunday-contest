@@ -23,3 +23,15 @@ a:hover {
 #content {
   padding-bottom:150px;
 }
+
+a {
+	color: #FFFFFF;
+    text-decoration:none;
+}
+
+.panel {
+	background-color:rgba(0, 0, 0, 0.4);
+}
+.well {
+	background-color:rgba(0, 0, 0, 0.4);
+}
