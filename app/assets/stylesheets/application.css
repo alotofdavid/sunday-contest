@@ -15,7 +15,7 @@
  */
 
 body {
-  padding-top: 50px;
+  padding-top: 65px;
 }
 a:hover {
     text-decoration:none;
@@ -25,13 +25,18 @@ a:hover {
 }
 
 a {
-	color: #FFFFFF;
-    text-decoration:none;
+    color:#BBB;
 }
 
 .panel {
 	background-color:rgba(0, 0, 0, 0.4);
+	font-size:1.2em;
+	color:white;
 }
+
 .well {
+	font-size:1.2em;
+	color:white;
+	border-width: 0px;
 	background-color:rgba(0, 0, 0, 0.4);
 }

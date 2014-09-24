@@ -1,0 +1,40 @@
+<div class="row">
+	<% if Contest.last %>
+		<% @eventArray = Contest.last.events %>
+		<% @eventArray.each do |event| %>
+	<% shouldShowButton = true; %>
+	<% for submission in event.submissions %> 
+		<% if submission.user_id == session[:currentUserID]  %>
+			<% shouldShowButton = false %>
+		<% end %>
+	<% end %>	
+
+      <div class="col-lg-<%= 12/@eventArray.length %>">
+			<% if session[:currentUserID] != nil  then %>
+				<% if shouldShowButton  then %>
+					<a href="/contests/<%=event.id%>">
+			<div class="panel panel-primary">
+				<% else %> 
+					<div class="panel panel-success">
+				<% end %>
+				<% else %>
+				<div class="panel panel-warning">
+			<% end %>
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul>
+					<li>Average of 12</li>
+			    </ul>
+			  </div>
+			</div>	
+			<% if session[:currentUserID] != nil  then %>
+				<% if shouldShowButton  then %>
+					</a>
+				<% end %>
+			<% end %>
+	</div>
+	<% end %>
+	<% end %>
+</div>

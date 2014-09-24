@@ -1,40 +1,24 @@
-<img class="bg" src="welcome-splash.jpg">
-<br>
-<div class = "row">
-	<% if Contest.last %>
-		<% Contest.last.events.each do |event| %>
-      <div class="col-lg-<%= 12/Contest.last.events.length %>">
-			<a style="color: #FFFFFF; text-decoration: none;" href="/contests/<%=event.id%>">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
-			  </div>
-			  <div class="panel-body">
-			    <ul>
-					<li>Average of 12</li>
-					<% if Contest.last.featured_event == event %>
-					<li>Featured Event!</li
-					<% end %>
-			    </ul>
-			  </div>
-			</div>	
-			</a>
-			</div>
-		<% end %>
-	<% else %>
-
-	<% end %>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="well">
+			<% if session[:currentUserID] == nil  then %>
+				<a href="#">Login</a> or <a href="#">Create an Account</a> to compete in this week's competition. 
+			<% else %>
+				Click below to compete in the current competition
+			<% end %>
+		</div>
+	</div>
 </div>
+<%= render "shared/contest_links" %>
 
 
 <div class = "row">
 	<div class="col-lg-8">
-	<div class = "well">
+	<div class = "well" style="padding-top:2px">
 	<h3>What is the Sunday Contest?</h3>
-	<h6>
 	The Sunday Contest is a place where speedcubers can compete against other cubers for a chance to win cool prizes, improve their personal rank, and practice new events. 
 	<br><br>
-	The Sunday Contest started in 2004 as a weekly unofficial competition hosted by Tyson Mao, and was later hosted by Jon Morris in 2005. </h6>
+	The Sunday Contest started in 2004 as a weekly unofficial competition hosted by Tyson Mao, and was later hosted by Jon Morris in 2005. 
 	</div>
 </div>
 
