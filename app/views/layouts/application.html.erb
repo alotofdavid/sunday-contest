@@ -2,7 +2,9 @@
 <html>
 <head>
   <%= csrf_meta_tags %>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  
   <link href="http://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
    <%= stylesheet_link_tag    "application", media: "all"%>
   <script type="text/javascript">
@@ -23,21 +25,22 @@
 <body>
 <img class="bg" src="/welcome-splash.jpg"> 
 <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#drop-down-collapse">
+  <div class="container" id="nav">
+    <div class="nav navbar-nav navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/"> <i class="fa fa-cube"></i> Sunday Contest</a>
     </div>
-    <div class="collapse navbar-collapse" id="drop-down-collapse">
+    <div class="collapse navbar-collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li><a href="/contests/"> <i class="fa fa-th"></i> Contests</a></li>
-        <li><a href="/ranking/"> <i class="fa fa-trophy"></i> Ranking</a></li>
-        <li><a href="/archive/"> <i class="fa fa-archive"></i> Archives</a></li>
-        <li><a href="/users/"> <i class="fa fa-users"></i> Users</a></li>
+        <li><a href="/contests/ " onClick="collapse=false;"> <i class="fa fa-th"></i> Contests</a></li>
+        <li><a href="/ranking/" onClick="collapse=false;"> <i class="fa fa-trophy"></i> Ranking</a></li>
+        <li><a href="/archive/" onClick="collapse=false;"> <i class="fa fa-archive"></i> Archives</a></li>
+        <li><a href="/users/" onClick="collapse=false;"> <i class="fa fa-users"></i> Users</a></li>
+        <li><a href="http://www.speedcubeshop.com" onClick="collapse=false;">Brought to you by <img src="/scs_logo.png"></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if session[:currentUserID] != nil then %>
@@ -62,6 +65,10 @@
       </p>
     </div>    
   </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
 

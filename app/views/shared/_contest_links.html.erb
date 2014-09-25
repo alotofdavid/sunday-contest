@@ -13,15 +13,19 @@
 			<% if session[:currentUserID] != nil  then %>
 				<% if shouldShowButton  then %>
 					<a href="/contests/<%=event.id%>">
-			<div class="panel panel-primary">
+					<div class="panel panel-primary">
+					<div class="panel-heading">
+			    	<h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
 				<% else %> 
 					<div class="panel panel-success">
+					<div class="panel-heading">
+			    	<h3 class="panel-title"><%= event.event_name %> (Completed) <i class="fa fa-check"></i> </h3>
 				<% end %>
 				<% else %>
 				<div class="panel panel-warning">
-			<% end %>
-			  <div class="panel-heading">
+				<div class="panel-heading">
 			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
+			<% end %>
 			  </div>
 			  <div class="panel-body">
 			    <ul>
