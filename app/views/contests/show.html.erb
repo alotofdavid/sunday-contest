@@ -15,11 +15,12 @@
     setUserId(<%= session[:currentUserID] %>);
     setEventId(<%= params[:id] %>); 
 <% end %>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Timer</title>
 </head>
 <body onload="initialize(true, true);">
- <div id="container">
+  <div class="well title">
+    <h3>Currently competing in the <%= @eventName %> event</h3>
+  </div>
+  <div class="well">
  <table border="1" cellpadding="5" cellspacing="0" width="100%">
   <tbody><tr>
    <td colspan="3" id="menu" bgcolor="#4294CF">
@@ -36,7 +37,6 @@
       </td>
 	  <td hidden = true><span class="hide"><font face="Arial" size="3">Session:</font></span>
 	   <select id="sessbox" size="1" onchange="getSession(); loadList(); getStats(true);"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-      <td hidden = true><a href="http://mzrg.com/qqtimer/megadoc.html" target="_blank" style="color: black;" class="a">Help!</a></td>
       <h3>&nbsp;&nbsp;Solves for the <%= @eventName %> event</h3>
      </tr>
     </tbody></table>
@@ -78,8 +78,8 @@
     monospace scrambles are <span id="monospace" onclick="toggleMono()" class="a">off</span><br>
     top bar color: #<input id="tcol" value="4294CF" size="6" maxlength="6" onchange="changeColor()"><br>
     background color: #<input id="bcol" value="white" size="6" maxlength="6" onchange="changeColor()"><br>
-    text color: #<input id="fcol" value="black" size="6" maxlength="6" onchange="changeColor()"><br>
-    link color: #<input id="lcol" value="blue" size="6" maxlength="6" onchange="changeColor()"><br>
+    text color: #<input id="fcol" value="white" size="6" maxlength="6" onchange="changeColor()"><br>
+    link color: #<input id="lcol" value="gray" size="6" maxlength="6" onchange="changeColor()"><br>
     highlight color: #<input id="hcol" value="yellow" size="6" maxlength="6" onchange="changeColor()"><br>
     memorization colour: #<input id="memcol" value="green" size="6" maxlength="6" onchange="changeColor()"><br>
     <span class="a" onclick="resetColors()">reset</span> colors to default<br>
@@ -95,17 +95,17 @@
    </td> 
   </tr>
  </tbody></table>
- </div><div id="footer">&nbsp;</div>
+ </div>
  <div id = "submitButton"></div>
 </body></html>
 <% else %>
 <body>
-<%end %>
 <% if session[:currentUserID] == nil then%>
   <h3>You must log in to do your solves </h3>
 <% elsif !shouldShowTimer %>
 <h3> You have already done your solves for this event this week </h3>
 <% end %>
 
+<%end %>
 
 

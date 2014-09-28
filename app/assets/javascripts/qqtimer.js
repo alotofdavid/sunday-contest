@@ -85,7 +85,7 @@ function post(path, params, method) {
 }  
 
 function initialize(lookForTimes, checkQueryString) {
-
+  resetColors();
  loadOptBoxes();
  var query = ""; // query string for scrambles
  if (checkQueryString) {
@@ -134,8 +134,8 @@ function initialize(lookForTimes, checkQueryString) {
  }
  document.getElementById('tcol').value = (a=getCookie("tColor"))===null ? "4294CF" : a;
  document.getElementById('bcol').value = (a=getCookie("bColor"))===null ? "white" : a;
- document.getElementById('fcol').value = (a=getCookie("fColor"))===null ? "black" : a;
- document.getElementById('lcol').value = (a=getCookie("lColor"))===null ? "blue" : a;
+ document.getElementById('fcol').value = (a=getCookie("fColor"))===null ? "white" : a;
+ document.getElementById('lcol').value = (a=getCookie("lColor"))===null ? "white" : a;
  document.getElementById('hcol').value = (a=getCookie("hColor"))===null ? "yellow" : a;
  document.getElementById('memcol').value = (a=getCookie("memColor"))===null ? "green" : a;
  document.getElementById('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
@@ -679,8 +679,8 @@ function parseColor(str) {
 function resetColors() {
  document.getElementById('tcol').value = "4294CF";
  document.getElementById('bcol').value = "white";
- document.getElementById('fcol').value = "black";
- document.getElementById('lcol').value = "blue";
+ document.getElementById('fcol').value = "white";
+ document.getElementById('lcol').value = "gray";
  document.getElementById('hcol').value = "yellow";
  document.getElementById('memcol').value = "green";
  changeColor();
