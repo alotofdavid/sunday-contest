@@ -27,7 +27,6 @@ var userId = -1;
 var eventId = -1;
 var endingAverage = -1;
 var best_time = "";
-function $(str){return document.getElementById(str);}
 
 
 // #################### TIMER STUFF ####################
@@ -120,50 +119,50 @@ function initialize(lookForTimes, checkQueryString) {
  timerStatus = 3;
 
  timerupdate = (a=getCookie("timerupdate"))===null ? 1 : a;
- $('toggler').innerHTML =
+ document.getElementById('toggler').innerHTML =
   (timerupdate==0) ? "off" :
   (timerupdate==1) ? "on" :
   (timerupdate==2) ? "seconds only" :
   "inspection only";
  useMilli = (a=getCookie("useMilli"))===null ? 0 : a;
- $('millisec').innerHTML = (useMilli==1) ? "1\/1000 sec" : "1\/100 sec";
+ document.getElementById('millisec').innerHTML = (useMilli==1) ? "1\/1000 sec" : "1\/100 sec";
  var oldManualEnter = manualEnter;
  manualEnter = (a=getCookie("manualEnter"))===null ? 0 : a;
  if (manualEnter!=oldManualEnter) {
   toggleInput();
   manualEnter = 1-manualEnter;
  }
- $('tcol').value = (a=getCookie("tColor"))===null ? "4294CF" : a;
- $('bcol').value = (a=getCookie("bColor"))===null ? "white" : a;
- $('fcol').value = (a=getCookie("fColor"))===null ? "black" : a;
- $('lcol').value = (a=getCookie("lColor"))===null ? "blue" : a;
- $('hcol').value = (a=getCookie("hColor"))===null ? "yellow" : a;
- $('memcol').value = (a=getCookie("memColor"))===null ? "green" : a;
- $('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
- $('theTime').innerHTML = (manualEnter==1) ?
+ document.getElementById('tcol').value = (a=getCookie("tColor"))===null ? "4294CF" : a;
+ document.getElementById('bcol').value = (a=getCookie("bColor"))===null ? "white" : a;
+ document.getElementById('fcol').value = (a=getCookie("fColor"))===null ? "black" : a;
+ document.getElementById('lcol').value = (a=getCookie("lColor"))===null ? "blue" : a;
+ document.getElementById('hcol').value = (a=getCookie("hColor"))===null ? "yellow" : a;
+ document.getElementById('memcol').value = (a=getCookie("memColor"))===null ? "green" : a;
+ document.getElementById('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
+ document.getElementById('theTime').innerHTML = (manualEnter==1) ?
   "<input id='timeEntry' size=12 style='font-size:100%'>"+
   " <span onclick='stopTimer(13);' class='a' style='color:"+
-  parseColor($('lcol').value)+"'>enter</span>" : "ready";
+  parseColor(document.getElementById('lcol').value)+"'>enter</span>" : "ready";
  timerSize = (a=getCookie("timerSize"))===null ? 2 : a;
- $('theTime').style.fontSize = timerSize + "em";
+ document.getElementById('theTime').style.fontSize = timerSize + "em";
  scrambleSize = (a=getCookie("scrSize"))===null ? 16 : parseInt(a,10);
- $('scramble').style.fontSize = scrambleSize + "px";
- $('getlast').style.fontSize = scrambleSize + "px";
- $('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
- $('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('scramble').style.fontSize = scrambleSize + "px";
+ document.getElementById('getlast').style.fontSize = scrambleSize + "px";
+ document.getElementById('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
  inspection = (a=getCookie("inspection"))===null ? 0 : a;
- $('inspec').innerHTML = (inspection==1) ? "WCA" : "no";
+ document.getElementById('inspec').innerHTML = (inspection==1) ? "WCA" : "no";
  if (inspection==0) { useBld = (a=getCookie("useBld"))===null ? 0 : a; }
  else { useBld = 0; setCookie("useBld", 0); }
- $('bldmode').innerHTML = (useBld==1) ? "on" : "off";
+ document.getElementById('bldmode').innerHTML = (useBld==1) ? "on" : "off";
  useAvgN = (a=getCookie("useAvgN"))===null ? 0 : a;
- $('avgn').innerHTML = (useAvgN==1) ? "using" : "not using";
+ document.getElementById('avgn').innerHTML = (useAvgN==1) ? "using" : "not using";
  useMoN = (a=getCookie("useMoN"))===null ? 0 : a;
- $('mon').innerHTML = (useMoN==1) ? "using" : "not using";
+ document.getElementById('mon').innerHTML = (useMoN==1) ? "using" : "not using";
  useMono = (a=getCookie("useMono"))===null ? 0 : a;
- $('monospace').innerHTML = (useMono==1) ? "on" : "off";
- $('scramble').style.fontFamily = (useMono==1) ? "monospace" : "serif";
- $('getlast').style.color = parseColor($('lcol').value);
+ document.getElementById('monospace').innerHTML = (useMono==1) ? "on" : "off";
+ document.getElementById('scramble').style.fontFamily = (useMono==1) ? "monospace" : "serif";
+ document.getElementById('getlast').style.color = parseColor(document.getElementById('lcol').value);
  type = (a=getCookie("scrType"))===null ? "333" : a;
  if (query.length > 0) type = query;
  
@@ -173,15 +172,15 @@ function initialize(lookForTimes, checkQueryString) {
  scramblers['333'].initialize(null, Math); // hopefully this'll let IE load scramblers
 
  curTime = new Date(0);
- $('leng').value = len;
- var obj = $('optbox');
+ document.getElementById('leng').value = len;
+ var obj = document.getElementById('optbox');
  for(var i = 0; i < scrdata.length; i++) {
   for (var j = 0; j < scrdata[i][1].length; j++) {
    if(scrdata[i][1][j][1] == type) {
     obj.selectedIndex = i;
     //rescramble(false);
     //rescramble();
-    $('optbox2').selectedIndex = j;
+    document.getElementById('optbox2').selectedIndex = j;
    }
   }
  }
@@ -191,8 +190,8 @@ function initialize(lookForTimes, checkQueryString) {
 }
 /*
 function rescramblestubrename(scramble) {
- var obj = $('optbox');
- var obj2 = $('optbox2');
+ var obj = document.getElementById('optbox');
+ var obj2 = document.getElementById('optbox2');
 
  var box2 = scrdata[obj.selectedIndex][1];
  for (var i=obj2.options.length-1; i>0; i--)
@@ -200,7 +199,7 @@ function rescramblestubrename(scramble) {
  for (var i=0; i<box2.length; i++)
   obj2.options[i] = new Option(box2[i][0],box2[i][1]);
  len = box2[0][2];
- $('leng').value = len;
+ document.getElementById('leng').value = len;
  type = box2[0][1];
  if (scramble) {
   //setCookie("scrType", type);
@@ -210,13 +209,13 @@ function rescramblestubrename(scramble) {
 
 function rescramble2() {
 
- var obj = $('optbox');
- var obj2 = $('optbox2');
+ var obj = document.getElementById('optbox');
+ var obj2 = document.getElementById('optbox2');
  var newType = obj2.options[obj2.selectedIndex].value;
 
  var box2 = scrdata[obj.selectedIndex][1];
  len = box2[obj2.selectedIndex][2];
- $('leng').value = len;
+ document.getElementById('leng').value = len;
  type = newType;
  //setCookie("scrType", type);
 
@@ -224,12 +223,12 @@ function rescramble2() {
 }
 */
 function rescramble() {
- len = $('leng').value;
+ len = document.getElementById('leng').value;
  if(numSolves < SCScrambleArray.length){
-    $('scramble').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;Scramble: " + SCScrambleArray[numSolves];
+    document.getElementById('scramble').innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;Scramble: " + SCScrambleArray[numSolves];
     numSolves++;
   }else{
-    $('scramble').innerHTML = "You have finished your solves for the average";
+    document.getElementById('scramble').innerHTML = "You have finished your solves for the average";
     finishedAllSolves = true;
     showSubmitButton();
   }
@@ -237,7 +236,7 @@ function rescramble() {
 
 function loadOptBoxes() {
  for (var i=0; i<scrdata.length; i++) {
-  $('optbox').options[i] = new Option(scrdata[i][0],"");
+  document.getElementById('optbox').options[i] = new Option(scrdata[i][0],"");
  }
 }
 
@@ -246,65 +245,65 @@ function startTimer(keyCode) {
  if (timerStatus == 0 && manualEnter == 0 && keyCode == 32 && importFocus == 0) {
   timerStatus = 3;
  } else if (timerStatus == 3 && manualEnter == 0 && keyCode == 32 && (new Date()).getTime() - curTime.getTime() >= 300 && importFocus == 0) {
-  if (type=="sqrs") { $('scramble').innerHTML = "scramble: loading... "; }
+  if (type=="sqrs") { document.getElementById('scramble').innerHTML = "scramble: loading... "; }
   if (inspection == 1) {
    timerStatus = 2;
    inspectionTime = new Date();
-   $('theTime').style.color = "red";
+   document.getElementById('theTime').style.color = "red";
    if (timerupdate != 0) {inspectionID = setInterval(updateInspec, (timerupdate==1)?10:100);}
-   else {$('theTime').innerHTML = "inspecting";}
+   else {document.getElementById('theTime').innerHTML = "inspecting";}
   } else if (useBld == 1) {
    timerStatus = 4;
    memoTime = new Date();
-   $('theTime').style.color = $('memcol').value;
+   document.getElementById('theTime').style.color = document.getElementById('memcol').value;
    if (timerupdate==1 || timerupdate==2) {memoID = setInterval(updateMemo, (timerupdate==1)?10:100);}
-   else {$('theTime').innerHTML = "memorizing";}
+   else {document.getElementById('theTime').innerHTML = "memorizing";}
   } else {
    timerStatus = 1;
    startTime = new Date();
    penalty = 0;
-   $('theTime').style.color = (nightMode ? "#fff" : $('fcol').value);
+   document.getElementById('theTime').style.color = (nightMode ? "#fff" : document.getElementById('fcol').value);
    if (timerupdate==1 || timerupdate==2) {timerID = setInterval(updateTimer, (timerupdate==1)?10:100);}
-   else {$('theTime').innerHTML = "running";}
+   else {document.getElementById('theTime').innerHTML = "running";}
   }
  } else if (timerStatus == 4 && keyCode == 32) {
   timerStatus = 1;
   startTime = new Date();
-  $('theTime').style.color = (nightMode ? "#fff" : $('fcol').value);
+  document.getElementById('theTime').style.color = (nightMode ? "#fff" : document.getElementById('fcol').value);
   var memoLength = startTime.getTime() - memoTime.getTime();
   if (timerupdate==1 || timerupdate==2) {
    clearInterval(memoID);
    timerID = setInterval(updateMemo, (timerupdate==1)?10:100);
   }
-  else {$('theTime').innerHTML = "running";}
+  else {document.getElementById('theTime').innerHTML = "running";}
  } else if (timerStatus == 2 && keyCode == 32) {
   timerStatus = 1;
   startTime = new Date();
-  $('theTime').style.color = (nightMode ? "#fff" : $('fcol').value);
+  document.getElementById('theTime').style.color = (nightMode ? "#fff" : document.getElementById('fcol').value);
   var inspecLength = startTime.getTime() - inspectionTime.getTime();
   penalty = (inspecLength < 15000) ? 0 : (inspecLength < 17000) ? 2 : 1;
   clearInterval(inspectionID);
   if (timerupdate==1 || timerupdate==2) {
    timerID = setInterval(updateTimer, (timerupdate==1)?10:100);
   }
-  else {$('theTime').innerHTML = "running";}
+  else {document.getElementById('theTime').innerHTML = "running";}
  }
 }
 }
 
 function stopTimer(keyCode) {
  if (keyCode == 32) {
-  $('optbox').blur();
-  $('leng').blur();
+  document.getElementById('optbox').blur();
+  document.getElementById('leng').blur();
  }
  if (manualEnter == 1) {
   if (keyCode == 13) {
-   var timeStr = $('timeEntry').value;
+   var timeStr = document.getElementById('timeEntry').value;
    var nonzero = false;
    if (timeStr.match(/.* .*/)) {
-    nonzero = parseTime(timeStr.replace(/(.*) .*/, "$1"), true);
+    nonzero = parseTime(timeStr.replace(/(.*) .*/, "document.getElementById1"), true);
     if (nonzero) { // if time breaks, ignore comments/notes
-     comments[times.length-1] = timeStr.replace(/.*? (.*)$/, "$1");
+     comments[times.length-1] = timeStr.replace(/.*? (.*)document.getElementById/, "document.getElementById1");
      notes[times.length-1] = 0;
      loadList(); // unfortunately have to do this twice ;|
      getStats(false);
@@ -312,7 +311,7 @@ function stopTimer(keyCode) {
    } else {
     nonzero = parseTime(timeStr, false);
    }
-   $('timeEntry').value = "";
+   document.getElementById('timeEntry').value = "";
    if (nonzero) scrambleArr[scrambleArr.length] = scramble;
    rescramble();
   }
@@ -334,9 +333,9 @@ function updateTimer() {
  curTime = new Date();
  var time = curTime.getTime() - startTime.getTime();
  if (timerupdate == 1) {
-  $('theTime').innerHTML = pretty(time);
+  document.getElementById('theTime').innerHTML = pretty(time);
  } else {
-  $('theTime').innerHTML = pretty(time).split(".")[0];
+  document.getElementById('theTime').innerHTML = pretty(time).split(".")[0];
  }
 }
 
@@ -344,16 +343,16 @@ function updateMemo() {
  curTime = new Date();
  var time = curTime.getTime() - memoTime.getTime();
  if (timerupdate == 1) {
-  $('theTime').innerHTML = pretty(time);
+  document.getElementById('theTime').innerHTML = pretty(time);
  } else {
-  $('theTime').innerHTML = pretty(time).split(".")[0];
+  document.getElementById('theTime').innerHTML = pretty(time).split(".")[0];
  }
 }
 
 function updateInspec() {
  curTime = new Date();
  var time = curTime.getTime() - inspectionTime.getTime();
- $('theTime').innerHTML = (time > 17000) ? "DNF" : (time > 15000) ? "+2" : 15-Math.floor(time/1000);
+ document.getElementById('theTime').innerHTML = (time > 17000) ? "DNF" : (time > 15000) ? "+2" : 15-Math.floor(time/1000);
 }
 
 function getTime(note) {
@@ -374,7 +373,7 @@ function getTime(note) {
  else { 
   comments[comments.length] = ""; 
  }
- $('theTime').innerHTML = pretty(time);
+ document.getElementById('theTime').innerHTML = pretty(time);
  clearHighlight();
  loadList();
  getStats(true); // should be false, but it doesn't hurt
@@ -436,10 +435,10 @@ function loadList() {
   if (i == highlightStop) {s += "<\/span>";}
   s += (i == times.length - 1) ? " " : ", ";
  }
- $('theList').innerHTML = s;
+ document.getElementById('theList').innerHTML = s;
  saveSession();
  // move scrollbar to bottom:
- var window = $('theList');
+ var window = document.getElementById('theList');
  window.scrollTop = window.scrollHeight;
  changeColor();
 }
@@ -464,8 +463,8 @@ function del(index) {
 }
 
 function getlastscramble() {
- $('scramble').innerHTML = "scramble: " + scramble + "<br> last scramble: " + lastscramble;
- $('getlast').innerHTML = "";
+ document.getElementById('scramble').innerHTML = "scramble: " + scramble + "<br> last scramble: " + lastscramble;
+ document.getElementById('getlast').innerHTML = "";
 }
 
 function comment() {
@@ -517,11 +516,11 @@ var validColors = ["black","brown","white","purple","violet","red","orange","yel
 var highlightColor;
 
 function toggleImport() {
- if ($('import').style.display == 'block') {
-  $('import').style.display = 'none';
+ if (document.getElementById('import').style.display == 'block') {
+  document.getElementById('import').style.display = 'none';
   importFocus = 0;
  } else {
-  $('import').style.display = 'block';
+  document.getElementById('import').style.display = 'block';
   importFocus = 1;
  }
 }
@@ -530,7 +529,7 @@ function toggleTimer() {
  stopTimer();
  timerupdate = (timerupdate + 1)%4;
  //setCookie("timerupdate", timerupdate);
- $('toggler').innerHTML =
+ document.getElementById('toggler').innerHTML =
   (timerupdate==0) ? "off" :
   (timerupdate==1) ? "on" :
   (timerupdate==2) ? "seconds only" :
@@ -540,7 +539,7 @@ function toggleTimer() {
 function toggleMilli() {
  useMilli = 1 - useMilli;
  //setCookie("useMilli", useMilli);
- $('millisec').innerHTML = (useMilli==1) ? "1\/1000 sec" : "1\/100 sec";
+ document.getElementById('millisec').innerHTML = (useMilli==1) ? "1\/1000 sec" : "1\/100 sec";
  loadList();
  getStats(true);
 }
@@ -548,61 +547,61 @@ function toggleMilli() {
 function toggleBld() {
  if (inspection==0) { useBld = 1 - useBld; }
  //setCookie("useBld", useBld);
- $('bldmode').innerHTML = (useBld==1) ? "on" : "off";
+ document.getElementById('bldmode').innerHTML = (useBld==1) ? "on" : "off";
 }
 
 function toggleMono() {
  useMono = 1 - useMono;
 // setCookie("useMono", useMono);
- $('monospace').innerHTML = (useMono==1) ? "on" : "off";
- $('scramble').style.fontFamily = (useMono==1) ? "monospace" : "serif";
- $('getlast').style.color = parseColor($('lcol').value);
+ document.getElementById('monospace').innerHTML = (useMono==1) ? "on" : "off";
+ document.getElementById('scramble').style.fontFamily = (useMono==1) ? "monospace" : "serif";
+ document.getElementById('getlast').style.color = parseColor(document.getElementById('lcol').value);
 }
 
 function toggleInput() {
  if (manualEnter == 0) stopTimer();
  manualEnter = 1 - manualEnter;
  //setCookie("manualEnter", manualEnter);
- $('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
- $('theTime').innerHTML = (manualEnter==1) ?
+ document.getElementById('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
+ document.getElementById('theTime').innerHTML = (manualEnter==1) ?
   "<input id='timeEntry' size=12 style='font-size:100%'>"+
   " <span onclick='stopTimer(13);' class='a' style='color:"+
-  parseColor($('lcol').value)+"'>enter</span>" : "ready";
+  parseColor(document.getElementById('lcol').value)+"'>enter</span>" : "ready";
 }
 
 function toggleOptions() {
  showOptions = 1 - showOptions;
- $('showOpt').innerHTML = (showOptions==1) ? "hide" : "show";
- $('options').style.display = (showOptions==1) ? "" : "none"; 
+ document.getElementById('showOpt').innerHTML = (showOptions==1) ? "hide" : "show";
+ document.getElementById('options').style.display = (showOptions==1) ? "" : "none"; 
 }
 
 function increaseSize() {
  timerSize++;
  //setCookie("timerSize", timerSize);
- $('theTime').style.fontSize = timerSize + "em"; $('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
- $('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('theTime').style.fontSize = timerSize + "em"; document.getElementById('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
 }
 
 function decreaseSize() {
  if (timerSize >= 2) timerSize--;
  //setCookie("timerSize", timerSize);
- $('theTime').style.fontSize = timerSize + "em";
- $('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
- $('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('theTime').style.fontSize = timerSize + "em";
+ document.getElementById('theList').style.height = Math.max(16, (timerSize * 1.5)) + "em";
+ document.getElementById('stats').style.height = Math.max(16, (timerSize * 1.5)) + "em";
 }
 
 function increaseScrambleSize() {
  scrambleSize+=4;
  //setCookie("scrSize", scrambleSize);
- $('scramble').style.fontSize = scrambleSize + "px";
- $('getlast').style.fontSize = scrambleSize + "px";
+ document.getElementById('scramble').style.fontSize = scrambleSize + "px";
+ document.getElementById('getlast').style.fontSize = scrambleSize + "px";
 }
 
 function decreaseScrambleSize() {
  if (scrambleSize > 8) scrambleSize-=4;
  //setCookie("scrSize", scrambleSize);
- $('scramble').style.fontSize = scrambleSize + "px";
- $('getlast').style.fontSize = scrambleSize + "px";
+ document.getElementById('scramble').style.fontSize = scrambleSize + "px";
+ document.getElementById('getlast').style.fontSize = scrambleSize + "px";
 }
 
 function toggleInspection() {
@@ -610,21 +609,21 @@ function toggleInspection() {
  if (inspection==1) { useBld = 0; }
  //setCookie("useBld", useBld);
  //setCookie("inspection", inspection);
- $('inspec').innerHTML = (inspection==1) ? "WCA" : "no";
- $('bldmode').innerHTML = (useBld==1) ? "on" : "off";
+ document.getElementById('inspec').innerHTML = (inspection==1) ? "WCA" : "no";
+ document.getElementById('bldmode').innerHTML = (useBld==1) ? "on" : "off";
 }
 
 function toggleAvgN() {
  useAvgN = 1 - useAvgN;
  //setCookie("useAvgN", useAvgN);
- $('avgn').innerHTML = (useAvgN==1) ? "using" : "not using";
+ document.getElementById('avgn').innerHTML = (useAvgN==1) ? "using" : "not using";
  getStats(true);
 }
 
 function toggleMoN() {
  useMoN = 1 - useMoN;
  //setCookie("useMoN", useMoN);
- $('mon').innerHTML = (useMoN==1) ? "using" : "not using";
+ document.getElementById('mon').innerHTML = (useMoN==1) ? "using" : "not using";
  getStats(true);
 }
 
@@ -634,37 +633,37 @@ function toggleStatView() {
 }
 
 function changeColor() {
- $('menu').bgColor = parseColor($('tcol').value);
+ document.getElementById('menu').bgColor = parseColor(document.getElementById('tcol').value);
  if (nightMode) {
   document.bgColor = "#000";
   document.body.style.color = "#fff";
  } else {
-  document.bgColor = parseColor($('bcol').value);
-  document.body.style.color = parseColor($('fcol').value);
+  document.bgColor = parseColor(document.getElementById('bcol').value);
+  document.body.style.color = parseColor(document.getElementById('fcol').value);
  }
 
  if (getBrowser() != "IE") {
   var links = document.getElementsByClassName('a');
   for (var i = 0; i < links.length; i++) {
-   links[i].style.color = parseColor($('lcol').value);
+   links[i].style.color = parseColor(document.getElementById('lcol').value);
   }
  } else {
   var links = document.getElementsByTagName('span');
   for (var i = 0; i < links.length; i++) {
    if (links[i].className == "a") {
-    links[i].style.color = parseColor($('lcol').value);
+    links[i].style.color = parseColor(document.getElementById('lcol').value);
    }
   }
  }
 
- highlightColor = parseColor($('hcol').value);
- $('getlast').style.color = parseColor($('lcol').value);
- setCookie("tColor", $('tcol').value);
- setCookie("bColor", $('bcol').value);
- setCookie("fColor", $('fcol').value);
- setCookie("lColor", $('lcol').value);
- setCookie("hColor", $('hcol').value);
- setCookie("memColor", $('memcol').value);
+ highlightColor = parseColor(document.getElementById('hcol').value);
+ document.getElementById('getlast').style.color = parseColor(document.getElementById('lcol').value);
+ setCookie("tColor", document.getElementById('tcol').value);
+ setCookie("bColor", document.getElementById('bcol').value);
+ setCookie("fColor", document.getElementById('fcol').value);
+ setCookie("lColor", document.getElementById('lcol').value);
+ setCookie("hColor", document.getElementById('hcol').value);
+ setCookie("memColor", document.getElementById('memcol').value);
 }
 
 function parseColor(str) {
@@ -678,12 +677,12 @@ function parseColor(str) {
 }
 
 function resetColors() {
- $('tcol').value = "4294CF";
- $('bcol').value = "white";
- $('fcol').value = "black";
- $('lcol').value = "blue";
- $('hcol').value = "yellow";
- $('memcol').value = "green";
+ document.getElementById('tcol').value = "4294CF";
+ document.getElementById('bcol').value = "white";
+ document.getElementById('fcol').value = "black";
+ document.getElementById('lcol').value = "blue";
+ document.getElementById('hcol').value = "yellow";
+ document.getElementById('memcol').value = "green";
  changeColor();
 }
 
@@ -693,8 +692,8 @@ function toggleNightMode() {
   document.bgColor = "#000";
   document.body.style.color = "#fff";
  } else {
-  document.bgColor = parseColor($('bcol').value);
-  document.body.style.color = parseColor($('fcol').value);
+  document.bgColor = parseColor(document.getElementById('bcol').value);
+  document.body.style.color = parseColor(document.getElementById('fcol').value);
  }
 }
 
@@ -938,8 +937,8 @@ function getStats(recalc) {
   s += "<br>session avg: <span onclick='setHighlight(0," + times.length + ",2);loadList();' class='a'>";
   s += pretty(sessionavg[0]) + "<\/span> (&sigma; = " + trim(sessionavg[1], 2) + ")";
  }
- $('stats').innerHTML = s;
- var window = $('stats');
+ document.getElementById('stats').innerHTML = s;
+ var window = document.getElementById('stats');
  window.scrollTop = 0; // IE workaround (lol)
  changeColor();
 }
@@ -1042,8 +1041,8 @@ function setHighlight(start, nsolves, id) {
    if (data[1].indexOf(i)>-1 || data[2].indexOf(i)>-1) s += ")";
    s += " &nbsp; " + scrambleArr[start+i] + "<br>";
   }
-  $('avgdata').innerHTML = "<td colspan='3'>" + s + "<\/td>";
-  $('avgdata').style.display = "";
+  document.getElementById('avgdata').innerHTML = "<td colspan='3'>" + s + "<\/td>";
+  document.getElementById('avgdata').style.display = "";
  }
 }
 
@@ -1051,7 +1050,7 @@ function clearHighlight() {
  highlightStart = -1;
  highlightStop = -1;
  highlightID = -1;
- $('avgdata').style.display = "none";
+ document.getElementById('avgdata').style.display = "none";
 }
 
 function timesort(a,b) {
@@ -1162,7 +1161,7 @@ function changeNotes(i) {
  getStats(true);
 }
 function changeAvgN() {
- var n = parseInt($("avglen").value);
+ var n = parseInt(document.getElementById("avglen").value);
  if (isNaN(n) || n < 3 || n > 10000) n = 50;
  avgSizes[0] = n;
  clearHighlight();
@@ -1171,7 +1170,7 @@ function changeAvgN() {
 }
 
 function changeMoN() {
- var n = parseInt($("molen").value);
+ var n = parseInt(document.getElementById("molen").value);
  if (isNaN(n) || n < 2 || n > 10000) n = 3;
  moSize = n;
  clearHighlight();
@@ -1182,7 +1181,7 @@ function changeMoN() {
 
 function importTimes() {
  // split
- var imported = $('importedTimes').value;
+ var imported = document.getElementById('importedTimes').value;
  var itimes = imported.split("\n");
  if (itimes.length == 1) {
   itimes = imported.split(",");
@@ -1193,7 +1192,7 @@ function importTimes() {
  for (var i=0; i<itimes.length; i++) {
   var t = itimes[i];
   while(t.match(/^ /)) {t = t.slice(1);} // dump spaces on start
-  while(t.match(/ $/)) {t = t.slice(0,t.length-1);} // dump spaces on end
+  while(t.match(/ document.getElementById/)) {t = t.slice(0,t.length-1);} // dump spaces on end
   var dot = (t.split(" ")[0]).slice(-1);
 
   // get to the time-only form
@@ -1217,13 +1216,13 @@ function importTimes() {
   }
 
   // parse
-  if(t.match(/^\(.*\)$/)) {t = t.slice(1,t.length-1);} // dump parens
+  if(t.match(/^\(.*\)document.getElementById/)) {t = t.slice(1,t.length-1);} // dump parens
   if(t.match(/.*\[.*\]/)) { // look for comments
-   comments[index] = t.replace(/.*\[(.*)\]/, "$1");
+   comments[index] = t.replace(/.*\[(.*)\]/, "document.getElementById1");
    t = t.split("[")[0];
   } else {comments[index] = "";}
   if(t.match(/DNF\(.*\)/)) { // DNF
-   t = t.replace(/DNF\((.*)\)/, "$1");
+   t = t.replace(/DNF\((.*)\)/, "document.getElementById1");
    notes[index] = 1;
   } else if(t.match(/.*\+/)) { // +2
    t = t.slice(0,t.length-1);
@@ -1725,7 +1724,7 @@ function scrambleIt(){
   megascramble([["OMG"],["WOW"],["WTF"],[["WOO-HOO","WOO-HOO","MATYAS","YES","YES","YAY","YEEEEEEEEEEEES"]],["HAHA"],["XD"],[":D"],["LOL"]],["","","","!!!"]);
  }
  scramble = ss[0];
- $('scramble').innerHTML = "scramble: " + scramble + "&nbsp;";
+ document.getElementById('scramble').innerHTML = "scramble: " + scramble + "&nbsp;";
 }
 
 // Clock functions.
