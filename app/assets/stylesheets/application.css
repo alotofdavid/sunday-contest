@@ -20,6 +20,10 @@
     }
 }  
 
+.center {
+	text-align:center;
+}
+
 body {
   padding-top: 65px;
 }
@@ -45,6 +49,15 @@ a {
 	color:white;
 	border-width: 0px;
 	background-color:rgba(0, 0, 0, 0.4);
+}
+
+// hack to make id navigation work with navbar
+.well:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -285px; 
+  height: 285px; 
+  visibility: hidden; 
 }
 
 .well.title {

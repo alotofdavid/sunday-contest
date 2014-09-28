@@ -1,6 +1,13 @@
-	<div class = "oldDiv">
+<div class="well title">
 	<h3>This is a list of all the competitors for the Sunday Contest</h3>
+</div>
+<table class="table table-striped table-condensed table-hover">
 	<% @all_users.each do |userName| %>
-    <li><%= link_to "#{userName.first_name} #{userName.last_name}", "users/#{userName.id}" %></li> 
+	    <tr>
+	    	<td>
+	    		<%= link_to "#{userName.first_name} #{userName.last_name}", "#{userName.id}" %>
+	    	</td> 
+	    </tr>
 	<% end %>
-	</div>
+	
+</table>

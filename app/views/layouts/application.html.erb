@@ -23,7 +23,7 @@
 
 
 <body>
-<img class="bg" src="/welcome-splash.jpg"> 
+<img class="bg" src="/welcome-splash-blur-gradient.png"> 
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container" id="nav">
     <div class="nav navbar-nav navbar-header">
@@ -32,7 +32,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"> <i class="fa fa-cube"></i> Sunday Contest</a>
+      <a class="navbar-brand" href="/"> <i class="fa fa-cube"></i> Sunday Contest<sup>BETA</sup></a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -67,7 +67,19 @@
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function (){
+  $("a.nav[href^='#']").click(function(){
+   $('html, body').animate(
+    {scrollTop: $(this.hash).offset().top - 60}, 500, 'swing')
+  });
+ $(".active").click(function(){
+  $('html, body').animate(
+   {scrollTop: 0}, 500, 'swing')
+ });
 
+ });
+</script>
 
 </body>
 </html>
