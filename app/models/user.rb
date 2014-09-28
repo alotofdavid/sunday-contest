@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 
-	has_one	 :user_profile
 	has_many :events #events completed this week. Reset every week
 	
 	validates :first_name, presence:{
