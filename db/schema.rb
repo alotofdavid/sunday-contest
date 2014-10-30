@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912064406) do
+ActiveRecord::Schema.define(version: 20141030202412) do
 
   create_table "contests", force: true do |t|
     t.datetime "end_date"
@@ -57,12 +57,24 @@ ActiveRecord::Schema.define(version: 20140912064406) do
   end
 
   create_table "users", force: true do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "wca_id"
-    t.string "login"
-    t.string "salt"
-    t.string "password_digest"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "wca_id"
+    t.string  "login"
+    t.string  "salt"
+    t.string  "password_digest"
+    t.integer "ELO_2x2",         default: 800
+    t.integer "ELO_3x3",         default: 800
+    t.integer "ELO_4x4",         default: 800
+    t.integer "ELO_5x5",         default: 800
+    t.integer "ELO_6x6",         default: 800
+    t.integer "ELO_7x7",         default: 800
+    t.integer "ELO_OH",          default: 800
+    t.integer "ELO_megaminx",    default: 800
+    t.integer "ELO_pyraminx",    default: 800
+    t.integer "ELO_square1",     default: 800
+    t.integer "ELO_clock",       default: 800
+    t.integer "ELO_skewb",       default: 800
   end
 
 end
