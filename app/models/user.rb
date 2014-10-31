@@ -13,7 +13,12 @@ class User < ActiveRecord::Base
 	validates :login, presence: {
 		message: "You must enter a login."
 	}
-	
+	validates :email, presence: {
+		message: "You must enter an email."
+	}
+	validates :email, uniqueness: {
+		message: "An account with that email already exists."
+	}
 	validates :login, uniqueness: {
 		message: "That login already exists"
 	}
@@ -30,9 +35,9 @@ class User < ActiveRecord::Base
 			self.errors.add(:Passwords, " do not match.")# lol
 
 		end
-		if @password1.length < 4 then
-			self.errors.add(:Password, " is not long enough.")	
-		end
+		#if @password1.length < 4 then
+			#self.errors.add(:Password, " is not long enough.")	
+		#end#this causes errors with saving users programmatically
 	end
 
 	def password

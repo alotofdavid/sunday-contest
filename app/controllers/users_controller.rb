@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 	end
 	def new()
 		@newUser = User.new
-
 	end
 	def create
 		@newUser = User.new
@@ -32,6 +31,8 @@ class UsersController < ApplicationController
 		@newUser.first_name = params[:firstName]
 		@newUser.last_name = params[:lastName]
 		@newUser.login = params[:login]
+		@newUser.wca_id = params[:wca_id]
+		@newUser.email = params[:email]
 		@newUser.password=(params[:passwordBox1][:password1])
 		if(@newUser.save()) then		
 			redirect_to "/users/login"
@@ -39,5 +40,6 @@ class UsersController < ApplicationController
 			render:new	
 		end
 	end
+
 	
 end

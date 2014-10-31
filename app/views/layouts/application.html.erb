@@ -47,7 +47,7 @@
             <%  currentUser = User.find_by_id(session[:currentUserID]) %>
       
             <li><%= link_to "#{currentUser.first_name}", "/users/#{currentUser.id}" %></li>
-             <li><a href="/">Account <i class="fa fa-cog"></i></a></li>
+             <li><a href="/account">Account <i class="fa fa-cog"></i></a></li>
             <li><%= link_to "Logout", "/users/logout" %></li>
       <% else %>
         <li><%= link_to "Login", "/users/login"%></li>

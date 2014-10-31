@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get '/comp/:id', to: 'contest#show'
   get '/comp/', to: 'contest#index'
 
+  resources :account
+
 end

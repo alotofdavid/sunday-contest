@@ -83,6 +83,15 @@ foo = Contest.new
   	o.event_id = buz.id
   	o.scramble_string = "5Scramble 5"
   	o.save()
+
+    admin1 = User.find_by_login("westonmizumoto");
+    #admin2 = User.find_by_login("davidadams");
+    admin1.isAdmin = true;
+    admin1.isMod = true;
+    admin1.save()
+    #admin1.save()
+    #admin2.isAdmin = true;
+    #admin2.isMod = true;
 #
 
 user_list = [

@@ -919,7 +919,7 @@ function getStats(recalc) {
  }
 
  var s = "stats: (<span id='hidestats' onclick='toggleStatView()' class='a'>" + (viewstats?"hide":"show") + "</span>)<br>";
- s += "number of times: " + (times.length - numdnf) + "/" + "12";
+ s += "number of times: " + (times.length - numdnf) + "/" + SCScrambleArray.length;
  if (viewstats) {
   s += "<br>best time: <span onclick='setHighlight(" + bestTimeIndex + ",1,0);loadList();' class='a'>";
   s += pretty(bestTime) + "<\/span><br>worst time: <span onclick='setHighlight(" + worstTimeIndex;

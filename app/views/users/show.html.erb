@@ -4,22 +4,87 @@
 </body>
 <div class="well title">
 <h3><%= @user.login %> - <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></h3>
-Overall ELO: elo
+<h5><%= @user.first_name =%> <%= @user.last_name =%></h5>
+<% if @user.wca_id != nil &&  @user.wca_id.length > 9 then%>
+<%  urlString = "https://www.worldcubeassociation.org/results/p.php?i=#{@user.wca_id}" %>
+<a href = <%= urlString %>>WCA Profile </a>
+<% else %>
+	This user has not linked their WCA ID.
+<% end %>
 </div>
-
 <table class="table table-striped table-condensed table-hover">
-	<tr> 
+		<tr> 
 		<th>Event</th>
+		<th>Site Rank</th>
 		<th>Elo</th>
 		<th>Best Average</th>
-	</tr>
-	<% (1..10).each do |event| %>
+		</tr>
 	    <tr>
-	    	<td>Event Name</td> 
-	    	<td>Elo</td>
+	    	<td>3x3 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_3x3%></td>
 	    	<td>Best Time</td>
 	    </tr>
-	<% end %>
+	    <tr>
+	    	<td>2x2 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_2x2%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>4x4 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_4x4%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>5x5 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_5x5%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>6x6 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_6x6%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>3x3 One Handed</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_OH%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>Pyraminx Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_pyraminx%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>Megaminx Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_megaminx%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>Square-1 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_square1%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>Skewb Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_skewb%></td>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>Clock Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<td><%= @user.ELO_clock%></td>
+	    	<td>Best Time</td>
+	    </tr>
 	
 </table>
 </body>
