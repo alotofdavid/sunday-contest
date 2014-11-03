@@ -1,13 +1,14 @@
+
 task :generate => :environment do
-	
-  eventArray = ["2x2", "3x3", "4x4","5x5", "6x6","7x7", "OH","Square-1", "Megaminx","Pyraminx", "Clock","Skewb"] 
+  #eventArray = ["2x2", "3x3", "4x4","5x5", "6x6","7x7", "OH","Square-1", "Megaminx","Pyraminx", "Clock","Skewb"] 
+  eventArray = ["2x2", "3x3", "4x4","OH"]
   newContest = Contest.new
   newContest.save()
   eventArray.each do |eventName|
     numScrambles = 12
     if(eventName == "6x6" || eventName == "7x7") then
         numScrambles = 5
-    end
+    end 
     newEvent = Event.new
     newEvent.event_name = eventName
     newEvent.contest_id = newContest.id
