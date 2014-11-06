@@ -19,14 +19,13 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
+set :environment, "development"#may need to deleter this line when deploying
 every :sunday, :at => '11:59pm' do # Use any day of the week or :weekend, :weekday
-  rake "generate"
-end
-every 1.minute do # Use any day of the week or :weekend, :weekday
   rake "generate"
 end
 
 #every :sunday, :at => '4:48pm' do # Use any day of the week or :weekend, :weekday
   #rake "generate"
 #end
+
+#whenever --update-crontab generate
