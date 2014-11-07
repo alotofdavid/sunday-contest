@@ -62,7 +62,7 @@ def calculateNewElo(elo, time, eloTimeArray)
 		oppElo = eloBlock.elo
 		oppTime = eloBlock.result
 		#multiplied everything by 100 becuase of floating point bullshits
-		if(eloBlock.elo == elo && oppTime = time && !excludedMyself) then
+		if(eloBlock.elo == elo && oppTime = time && !excludedMyself) then##this bugs out when we have results like 0.1, 0.11 0.11, etc
 			excludedMyself = true
 			next
 		end	

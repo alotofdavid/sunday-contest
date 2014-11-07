@@ -20,4 +20,5 @@ task :generate => :environment do
       newScramble.save()
     end
   end
+  
 end

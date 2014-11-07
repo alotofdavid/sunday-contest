@@ -1,13 +1,24 @@
 <div class="well title">
 	<h3>This is a list of all the competitors for the Sunday Contest</h3>
 </div>
+<% counter = 1 %>
 <table class="table table-striped table-condensed table-hover">
-	<% @all_users.each do |userName| %>
+<tr>
+		<td>#</td>
+		<td><b>Username</b></td>
+		<td><b>Full Name</b></td>
+		</tr>
 	    <tr>
+	<% @all_users.each do |userName| %>
+	    	<td><%= counter %></td>
 	    	<td>
-	    		<%= link_to "#{userName.first_name} #{userName.last_name}", "#{userName.id}" %>
+	    		<%= link_to "#{userName.login}", "#{userName.id}" %>
 	    	</td> 
+	    	<td>
+	    		<%= userName.first_name + " " + userName.last_name %>
+	    	</td> 
+
 	    </tr>
+	    <% counter += 1 %>
 	<% end %>
-	
 </table>

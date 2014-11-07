@@ -20,24 +20,24 @@
 		} %>
 	<table class="table table-striped table-hover table-condensed">
 		<tr>
-			<th>Rank</th>
-			<th>Name</th>
+			<th>Place</th>
+			<th>Username</th>
 			<th>Best</th>
 			<th>Average</th>
 			<th>Times</th>
 			<th>Elo</th>
 		</tr>
+		<% counter = 1%>
 		<% for submission in @sortedSubmissions do %>
 			<tr>
-				<td> Rank</td>
-				<td> <%= submission.user.first_name + " " + submission.user.last_name %></td>
+				<td><%= counter %></td>
+				<td> <%= link_to(submission.user.login, "/users/#{submission.user.id}") %></td>
 				<td><%= submission.best_time %> </td>
 				<td><%= submission.result %> </td>
 				<td> <%= submission.time_list %></td>
 				<td>ELO </td>
-			</tr>	
+			</tr>
+			<% counter += 1 %>
 		<% end %>	
 	</table>
 <% end %>
-
-Only show elo for the most recent contest?

@@ -9,7 +9,7 @@ task :score => :environment do
 			elo = getEloForEvent(sub.user_id,eventName)	
 			entry = eloBlock.new(elo,sub.result)
 			eloTimeArray << entry
-			if(eventName == "Skewb") then
+			if(eventName == "Pyraminx") then
 				puts(eloTimeArray)
 			end
 		end	
