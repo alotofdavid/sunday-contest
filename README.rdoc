@@ -34,8 +34,8 @@ In the project directory run:
 bundle install
 
 rake db:migrate
-rake generate
 
+rake generate
 
 gem install whenever
 
