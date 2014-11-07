@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     post :post_submit_WCA, on: :collection
     post :post_submit_email, on: :collection
   end
-
+ resources :about
 end
