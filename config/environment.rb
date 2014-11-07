@@ -3,6 +3,8 @@
 require File.expand_path('../application', __FILE__)
 require 'rubygems'
 require 'scrambler'
+eloBlock = Struct.new(:elo, :result)
+
 def getScramble(scrambleType)
 	if(scrambleType == "2x2") then
 		return Scrambler::TwoByTwo.new.scramble + " I'm sorry about these scrambles. "
@@ -39,7 +41,8 @@ def getScramble(scrambleType)
 	end
 	return "There has been an error generating scrambles."
 end	
-def calculateNewElo(elo, time, eloTimeHash) 
+def calculateNewElo(elo, time, eloTimeArray) 
+	#return 800
 	newElo = elo
 	if elo < 2100 then
 		kFactor = 32
@@ -54,20 +57,26 @@ def calculateNewElo(elo, time, eloTimeHash)
 	#### Bigger kfactor means bigger change with each competition
 	####
 	#puts("original elo is " + elo.to_s)	
-	eloTimeHash.each do |oppElo,oppTime|
+	excludedMyself = false#I use this bool to exclude myself from the array
+	eloTimeArray.each do |eloBlock|
+		oppElo = eloBlock.elo
+		oppTime = eloBlock.result
 		#multiplied everything by 100 becuase of floating point bullshits
+		if(oppElo == elo && oppTime = time && !excludedMyself) then
+			excludedMyself = true
+			next
+		end	
 		expectedScore = 100/(1 + 10**((oppElo-elo)/400))
 		score = 0
-		if(time < oppTime) then
+		if(time < eloBlock.result) then
 			score = 100
 		end
-		if(time == oppTime)then
+		if(time == eloBlock.elo)then
 			score = 50
 		end
-		diff = kFactor*(score-expectedScore)
-		newElo +=  (kFactor*(score-expectedScore))/100
+		diff = kFactor*(score-expectedScore)/100
+		newElo +=  diff
 		
-		#rputs("diff is " + diff.to_s)	
 	end	
 	#puts("NEW ELO IS " + newElo.round(0).to_s)
 	return newElo.round(0)
@@ -102,9 +111,51 @@ def setEloForEvent(userId,eventName,newElo)
 	user.save()
 end
 
+
+
+def getClassFromElo(elo)
+	if elo < 200 then
+		return "Class J"
+	end
+	if elo < 400 then
+		return "Class I"
+	end
+	if elo < 600 then
+		return "Class H"
+	end
+	if elo < 800 then
+		return "Class G"
+	end
+	if elo < 1000 then
+		return "Class F"
+	end
+	if elo < 1200 then
+		return "Class E"
+	end
+	if elo < 1400 then
+		return "Class D"
+	end
+	if elo < 1600 then
+		return "Class C"
+	end
+	if elo < 1800 then
+		return "Class B"
+	end
+	if elo < 2000 then
+		return "Class A"
+	end
+	if elo < 2200 then
+		return "Expert"
+	end
+	if elo < 2400 then
+		return "National Master"
+	end
+	return "Senior Master"
+
+
+end
 # Initialize the Rails application.
 Rails.application.initialize!
-
 
 
 
