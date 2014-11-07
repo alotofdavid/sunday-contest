@@ -26,3 +26,14 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+HOW2RUN
+
+In the project directory run:
+bundle install
+rake db:migrate
+rake db:seed
+rake generate
+gem install whenever
+bundle
+rails server
