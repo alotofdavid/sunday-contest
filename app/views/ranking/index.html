@@ -1,40 +1,33 @@
-<div class="well title"><h3>Leaderboard</h3></div>
-
-<td valign='bottom'><div class='space'><label for='eventId'>Event:<br /><select class='drop' id='eventId' name='eventId'>
-<option value=''>All</option>
-<option value=''></option>
-<option value='333'>Rubik&#039;s Cube</option>
-<option value='444'>4x4 Cube</option>
-<option value='555'>5x5 Cube</option>
-<option value='222'>2x2 Cube</option>
-<option value='333bf'>3x3 blindfolded</option>
-<option value='333oh'>3x3 one-handed</option>
-<option value='333fm'>3x3 fewest moves</option>
-<option value='333ft'>3x3 with feet</option>
-<option value='minx'>Megaminx</option>
-<option value='pyram'>Pyraminx</option>
-<option value='sq1'>Square-1</option>
-<option value='clock'>Rubik&#039;s Clock</option>
-<option value='skewb'>Skewb</option>
-<option value='666'>6x6 Cube</option>
-<option value='777'>7x7 Cube</option>
-<option value='444bf'>4x4 blindfolded</option>
-<option value='555bf'>5x5 blindfolded</option>
-<option value='333mbf'>3x3 multi blind</option>
-</select></label></div></td>	
+<div class="well title"><h3>Leaderboard For the <%= @niceFormatEventName %> event.</h3></div>
+<h3> Sort By:
+<%= link_to "3x3","/ranking?sortby=3x3" %>	
+<%= link_to "2x2","/ranking?sortby=2x2" %>	
+<%= link_to "4x4","/ranking?sortby=4x4" %>	
+<%= link_to "5x5","/ranking?sortby=5x5" %>	
+<%= link_to "6x6","/ranking?sortby=6x6" %>	
+<%= link_to "7x7","/ranking?sortby=7x7" %>	
+<%= link_to "3x3 OH","/ranking?sortby=3x3OH" %>		
+<%= link_to "Megaminx","/ranking?sortby=Megaminx" %>	
+<%= link_to "Pyraminx","/ranking?sortby=Pyraminx" %>	
+<%= link_to "Square-1","/ranking?sortby=Square1" %>	
+<%= link_to "Clock","/ranking?sortby=Clock" %>
+<%= link_to "Skewb","/ranking?sortby=Skewb" %>	
+</h3>	
 <% counter = 1%>
 <table class="table table-striped table-hover table-condensed">
 	<tr>
-	<th>Rank</th><th>ELO</th><th>Name</th>
+	<th>Rank</th>
+	<th>ELO</th>
+	<th>Name</th>
 	</tr>
 <% @all_users.each do |userName| %>
 <tr>
 <td><%= counter.to_s + ". " %> </td>
-<td>N/A</td>
+<td><%= @eloHash[userName.id] %></td>
 <td> <%= link_to "#{userName.first_name} #{userName.last_name}", "users/#{userName.id}" %></tr>
 </tr>
 </li>
+<% counter += 1 %>
 <% end %>
 </table>
-Basically all we need to do is sort the User.all array by some ELO algorithm, and use the search bar to filter the results
 
