@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/comp/:id', to: 'contest#show'
   get '/comp/', to: 'contest#index'
 
-  resources :account
+  resources :account do
+    post :post_submit_WCA, on: :collection
+    post :post_submit_email, on: :collection
+  end
 
 end
