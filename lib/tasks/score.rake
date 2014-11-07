@@ -1,5 +1,6 @@
-eloBlock = Struct.new(:elo, :result)
 task :score => :environment do
+	eloBlock = Struct.new(:elo, :result)
+
 	contest = Contest.last
 	contest.events.each do |event|
 		eventName = event.event_name
@@ -8,6 +9,9 @@ task :score => :environment do
 			elo = getEloForEvent(sub.user_id,eventName)	
 			entry = eloBlock.new(elo,sub.result)
 			eloTimeArray << entry
+			if(eventName == "Skewb") then
+				puts(eloTimeArray)
+			end
 		end	
 		event.submissions.each do |submiss|#probably have to use eval
 			#user.something_elo = calculateNewElo(user.elo, time, hashOfEverything)

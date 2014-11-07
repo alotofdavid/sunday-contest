@@ -62,11 +62,11 @@ def calculateNewElo(elo, time, eloTimeArray)
 		oppElo = eloBlock.elo
 		oppTime = eloBlock.result
 		#multiplied everything by 100 becuase of floating point bullshits
-		if(oppElo == elo && oppTime = time && !excludedMyself) then
+		if(eloBlock.elo == elo && oppTime = time && !excludedMyself) then
 			excludedMyself = true
 			next
 		end	
-		expectedScore = 100/(1 + 10**((oppElo-elo)/400))
+		expectedScore = 100/(1 + 10**((oppElo - elo)/400))
 		score = 0
 		if(time < eloBlock.result) then
 			score = 100
@@ -90,8 +90,9 @@ def getEloForEvent(userId,eventName)
 	else
 		appendThis = "ELO_" + eventName
 	end
-	elo = ""
-	evalString = "elo = (User.find(" + userId.to_s + "))." + appendThis
+	elo = 0
+	user = User.find(userId)
+	evalString = "elo = user." + appendThis
 	eval(evalString)
 	return elo
 
