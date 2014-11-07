@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031053901) do
+ActiveRecord::Schema.define(version: 20141106233518) do
 
   create_table "account_settings", force: true do |t|
     t.datetime "created_at"
@@ -68,21 +68,21 @@ ActiveRecord::Schema.define(version: 20141031053901) do
     t.string  "login"
     t.string  "salt"
     t.string  "password_digest"
+    t.boolean "isMod",           default: false
+    t.boolean "isAdmin",         default: false
+    t.string  "email"
     t.integer "ELO_2x2",         default: 800
     t.integer "ELO_3x3",         default: 800
     t.integer "ELO_4x4",         default: 800
     t.integer "ELO_5x5",         default: 800
     t.integer "ELO_6x6",         default: 800
     t.integer "ELO_7x7",         default: 800
-    t.integer "ELO_OH",          default: 800
-    t.integer "ELO_megaminx",    default: 800
-    t.integer "ELO_pyraminx",    default: 800
-    t.integer "ELO_square1",     default: 800
-    t.integer "ELO_clock",       default: 800
-    t.integer "ELO_skewb",       default: 800
-    t.boolean "isMod",           default: false
-    t.boolean "isAdmin",         default: false
-    t.string  "email"
+    t.integer "ELO_3x3OH",       default: 800
+    t.integer "ELO_Megaminx",    default: 800
+    t.integer "ELO_Pyraminx",    default: 800
+    t.integer "ELO_Square1",     default: 800
+    t.integer "ELO_Clock",       default: 800
+    t.integer "ELO_Skewb",       default: 800
   end
 
 end

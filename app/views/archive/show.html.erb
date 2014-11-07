@@ -26,7 +26,6 @@
 			<th>Average</th>
 			<th>Times</th>
 			<th>Elo</th>
-			<th>&#916;Elo</th>
 		</tr>
 		<% for submission in @sortedSubmissions do %>
 			<tr>
@@ -36,8 +35,9 @@
 				<td><%= submission.result %> </td>
 				<td> <%= submission.time_list %></td>
 				<td>ELO </td>
-				<td>DELTA ELO </td>
 			</tr>	
 		<% end %>	
 	</table>
 <% end %>
+
+Only show elo for the most recent contest?

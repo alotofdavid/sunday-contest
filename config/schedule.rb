@@ -21,7 +21,8 @@
 
 set :environment, "development"#may need to deleter this line when deploying
 every :sunday, :at => '11:59pm' do # Use any day of the week or :weekend, :weekday
-  rake "generate"
+	rake "score"
+  	rake "generate"
 end
 
 #every :sunday, :at => '4:48pm' do # Use any day of the week or :weekend, :weekday
