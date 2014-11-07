@@ -34,14 +34,10 @@ In the project directory run:
 bundle install
 
 rake db:migrate
-
-rake db:seed
-
 rake generate
 
-gem install whenever
 
-bundle
+gem install whenever
 
 rails server
 
