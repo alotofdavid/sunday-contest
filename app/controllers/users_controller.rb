@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 	def index()
-		@all_users = User.all
+		#@all_users = Array.new
+		#@all_users = User.all
+		#@memberships.sort_by!{ |m| m.group.name.downcase }
+		@all_users = User.all.sort { |a,b|
+			a.login <=> b.login
+		}
 	end	
 	def show()
 		@user = User.find(params[:id])

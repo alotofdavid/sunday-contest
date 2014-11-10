@@ -30,6 +30,8 @@ gem 'table_print'
 
 gem 'rails_admin'
 
+gem "scrambler"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
