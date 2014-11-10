@@ -35,7 +35,7 @@
 				<td><%= submission.best_time %> </td>
 				<td><%= submission.result %> </td>
 				<td> <%= submission.time_list %></td>
-				<td>ELO </td>
+				<td><%= getEloForEvent(submission.user.id,event.event_name)%> </td>
 			</tr>
 			<% counter += 1 %>
 		<% end %>	
