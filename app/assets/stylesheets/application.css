@@ -14,9 +14,9 @@
  *= require_self
  */
 
-@media all and (min-width: 845px) and (max-width: 1090px){
+@media all and (min-width: 845px) and (max-width: 1320px){
     #content{
-        margin-top:30px;
+        margin-top:10px;
     }
 }  
 

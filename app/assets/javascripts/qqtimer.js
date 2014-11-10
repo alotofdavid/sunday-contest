@@ -50,7 +50,7 @@ function saveScrambleArray(scrambleArray){
 }
 function showSubmitButton(){
   elem = document.getElementById("submitButton");
-  elem.innerHTML = "<input type = \'button\' value = \'Submit Times\' onclick = \'submitButtonHandler();\' style = \'width:100px;height:30px;\'></input>"
+  elem.innerHTML = "<input type = \'button\' value = \'Submit Times\' onclick = \'submitButtonHandler();\' class = \'btn btn-success\'></input>"
 }
 function submitButtonHandler(){
     timeStrings = [];
