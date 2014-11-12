@@ -11,35 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110233650) do
+ActiveRecord::Schema.define(version: 20141110232133) do
 
   create_table "account_settings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "announcement", force: true do |t|
-    t.string  "first_line"
-    t.string  "second_line"
-    t.string  "third_line"
-    t.integer "winner_id"
-    t.integer "random_id"
-  end
-
   create_table "announcements", force: true do |t|
-    t.string  "first_line"
-    t.string  "second_line"
-    t.string  "third_line"
-    t.integer "winner_id"
-    t.integer "random_id"
+    t.string   "first_line"
+    t.string   "second_line"
+    t.string   "third_line"
+    t.integer  "winner_id"
+    t.integer  "random_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contests", force: true do |t|
     t.datetime "end_date"
     t.string   "featured_event"
+    t.string   "featured_event_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "featured_event_name"
   end
 
   create_table "events", force: true do |t|
