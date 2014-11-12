@@ -9,7 +9,7 @@
 					<% shouldShowButton = false %>
 				<% end %>
 			<% end %>	
-      		<div class="col-lg-<%= 12/@eventArray.length %>">
+      		<div class="col-lg-<%= 12/@eventArray.length %>" onmouseover = toggle(<%= counter %>) onmouseout = toggle(<%= counter %>) >
 			<% if session[:currentUserID] != nil  then %>
 				<% if shouldShowButton  then %>
 					<a href="/contests/<%=event.id%>">
@@ -30,13 +30,13 @@
 			<div class="panel-body">
 			    <ul>
 					<li>Average of <%= event.scrambles.size %></li>
-					<ul>
+					
 						<div hidden = "true" id = "<%=counter %>" >
 			    			<% event.submissions.each do |s|%>
-			    				<li><font size = "2pt"><%= User.find(s.user_id).login%></font></li>
+			    				<font size = "1pt"><%= User.find(s.user_id).login%></font>
 			    			<% end %>	
 			    		</div>
-			    	</ul>	
+			    	
 			    </ul>
 			  </div>
 			</div>	
@@ -44,7 +44,7 @@
 				<% if shouldShowButton  then %>
 					</a>
 				<% end %>
-				<center onclick = toggle(<%= counter %>) ><div id = "<%= counter + 4 %>">Expand</div></center>
+				
 				<% counter += 1 %>	
 			<% end %>
 		
@@ -58,10 +58,10 @@ function toggle(id){
 	//document.getElementById(id + 4).innerHTML = document.getElementById(id).innerHTML
 	if(document.getElementById(id).hidden == true){
 		document.getElementById(id).hidden = false
-		document.getElementById(id+4).innerHTML = "Close"
+		//document.getElementById(id+4).innerHTML = "Close"
 	}else{
 		document.getElementById(id).hidden = true
-		document.getElementById(id+4).innerHTML = "Expand"
+		//document.getElementById(id+4).innerHTML = "Expand"
 	}
 
 }
