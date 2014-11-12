@@ -1,49 +1,77 @@
 <% if session[:currentUserID] == nil %>
 <% if @newUser.errors.any? %>
-      <ul>
-        <% @newUser.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
+	<% @newUser.errors.messages.each do |symbol, msg| %>
+      <div class="alert alert-danger">
+        <%= msg.first %>
+      </div>
+  	<% end %>
   <% end %>
 <%= form_tag("/users", method: "post") do %>
-	<center>
-	<table>
-		<tr>
-			<td><%= label_tag("First Name:") %></td>
-			<td><font color="black"><%= text_field_tag(:firstName) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("Last Name:") %></td>
-			<td><font color="black"><%= text_field_tag(:lastName) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("Username:") %></td>
-			<td><font color="black"><%= text_field_tag(:login) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("WCA ID (optional):") %></td>
-			<td><font color="black"><%= text_field_tag(:wca_id) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("Email:") %></td>
-			<td><font color="black"><%= text_field_tag(:email) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("Password:") %></td>
-			<td><font color="black"><%= password_field(:passwordBox1, :password1) %></font></td>
-		</tr>
-		<tr>
-			<td><%= label_tag("Confirm Password:") %></td>
-			<td><font color="black"><%= password_field(:passwordBox2, :password2) %></font></td>
-		</tr>
-		<tr>
-			<td>
-				<%= submit_tag("Register") %>
-			</td>
-		</tr>
-	</table>	
-</center>
+
+    <div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="firstName" name="firstName" size="20" type="text" placeholder="First Name" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+
+	<div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="lastName" name="lastName" size="20" type="text" placeholder="Last Name" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+
+   	<div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="login" name="login" size="20" type="text" placeholder="Username" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+
+     <div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="wca_id" name="wca_id" size="20" type="text" placeholder="WCA ID (Optional)" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+
+	 <div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="email" name="email" size="20" type="text" placeholder="Email" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+    
+
+	 <div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="passwordBox1_password1" name="passwordBox1[password1]" size="20" type="password" placeholder="Password" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+
+   	<div class="row">
+      <!-- Password-->
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <input id="passwordBox2_password2" name="passwordBox2[password2]" size="20" type="password" placeholder="Confirm Password" class="form-control"></div>
+      <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+    	 <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+      	<input class="btn btn-success" type="submit" name="Register">
+        <!--<%= submit_tag("Register") %></div>-->
+      <div class="col-sm-4"></div>
+  	</div>
+
 <% end %>
 <% else %>
 You are already logged in.

@@ -49,7 +49,6 @@
         <li><a href="/ranking/" onClick="collapse=false;"> <i class="fa fa-trophy"></i> Ranking</a></li>
         <li><a href="/archive/" onClick="collapse=false;"> <i class="fa fa-archive"></i> Archives</a></li>
         <li><a href="/users/" onClick="collapse=false;"> <i class="fa fa-users"></i> Users</a></li>
-        <li><a href="http://www.speedcubeshop.com" onClick="collapse=false;">Sponsored by <img src="/scs_logo.png"></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if session[:currentUserID] != nil then %>
@@ -60,6 +59,7 @@
             <li><%= link_to "Logout", "/users/logout" %></li>
       <% else %>
         <li><%= link_to "Login", "/users/login"%></li>
+        <li><%= link_to "Sign Up", "/users/new"%></li>
       <% end %>
       </ul>
     </div><!--/.nav-collapse -->

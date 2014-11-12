@@ -1,19 +1,19 @@
 <div class="well title"><h3>Leaderboard For the <%= @niceFormatEventName %> event.</h3></div>
-<h4 > Sort By:
-<%= link_to "3x3","/ranking?sortby=3x3" %>	
-<%= link_to "2x2","/ranking?sortby=2x2" %>	
-<%= link_to "4x4","/ranking?sortby=4x4" %>	
-<%= link_to "5x5","/ranking?sortby=5x5" %>	
-<%= link_to "6x6","/ranking?sortby=6x6" %>	
-<%= link_to "7x7","/ranking?sortby=7x7" %>	
-<%= link_to "3x3 OH","/ranking?sortby=3x3OH" %>		
-<%= link_to "Megaminx","/ranking?sortby=Megaminx" %>	
-<%= link_to "Pyraminx","/ranking?sortby=Pyraminx" %>	
-<%= link_to "Square-1","/ranking?sortby=Square1" %>	
-<%= link_to "Clock","/ranking?sortby=Clock" %>
-<%= link_to "Skewb","/ranking?sortby=Skewb" %>	
-
-</h4>	
+	<nav>
+  <ul class="pagination">
+    <li><a href="/ranking?sortby=3x3">3x3</a></li>
+    <li><a href="/ranking?sortby=2x2">2x2</a></li>
+    <li><a href="/ranking?sortby=4x4">4x4</a></li>
+    <li><a href="/ranking?sortby=5x5">5x5</a></li>
+    <li><a href="/ranking?sortby=6x6">6x6</a></li>
+    <li><a href="/ranking?sortby=7x7">7x7</a></li>
+    <li><a href="/ranking?sortby=3x3OH">3x3 OH</a></li>
+    <li><a href="/ranking?sortby=Megaminx">Megaminx</a></li>
+    <li><a href="/ranking?sortby=Pyraminx">Pyraminx</a></li>
+    <li><a href="/ranking?sortby=Clock">Clock</a></li>
+    <li><a href="/ranking?sortby=Skewb">Skewb</a></li>
+  </ul>
+</nav>
 <% counter = 1%>
 <table class="table table-striped table-hover table-condensed">
 	<tr>

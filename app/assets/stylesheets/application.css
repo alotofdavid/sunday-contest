@@ -26,16 +26,17 @@
 
 body {
   padding-top: 65px;
+  padding-bottom:-20px;
 }
 a:hover {
     text-decoration:none;
 }
 #content {
-  padding-bottom:150px;
+  padding-bottom:50px;
 }
 
 a {
-    color:#BBB;
+    color:#4BF;
 }
 
 .panel {
