@@ -1,4 +1,5 @@
-<% shouldShowTimer = true; %>
+
+<%  shouldShowTimer = @thisContest.events.include?(@event)%>
 <% for submission in @event.submissions %>
   <% if submission.user_id == session[:currentUserID] || session[:currentUserID] == nil %>
     <% shouldShowTimer = false %>
@@ -103,7 +104,7 @@
 <% if session[:currentUserID] == nil then%>
   <h3>You must log in to do your solves </h3>
 <% elsif !shouldShowTimer %>
-<h3> You have already done your solves for this event this week </h3>
+<h3> You do not have permission to view this page. </h3>
 <% end %>
 
 <%end %>

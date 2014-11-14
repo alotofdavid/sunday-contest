@@ -14,6 +14,7 @@ class ContestsController < ApplicationController
 			puts scramble.scramble_string
 		end
 		@numScrambles = @scrambleArray.count
+		@thisContest = Contest.last
 	end
 	def post_submit
 		puts params[:dataArray];

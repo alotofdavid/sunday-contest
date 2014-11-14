@@ -32,9 +32,13 @@
 					<li>Average of <%= event.scrambles.size %></li>
 					
 						<div hidden = "true" id = "<%=counter %>" >
+						<% if event.submissions.size != 0  then %>
+							
+							<font size = "1pt">•</font>
+						<%end %>
 			    			<% event.submissions.each do |s|%>
-			    				<font size = "1pt"><%= User.find(s.user_id).login%></font>
-			    			<% end %>	
+			    				 <font size = "1pt"><%= User.find(s.user_id).login%> •</font>
+			    			<% end %>
 			    		</div>
 			    	
 			    </ul>
