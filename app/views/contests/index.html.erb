@@ -1,14 +1,14 @@
 <div class="well title">
-	<h3>Finish these events by Sunday</h3>
+	<h3>Events for contest #<%=Contest.last.id %>.</h3>
 </div>
 <% if session[:currentUserID] == nil then %>
 	<div class="well"><h5>You must log in to complete your solves </h5></div>
 <%end%>
 <%= render "shared/contest_links" %>
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-9">
 	<div class="well">
-		<h5>Your solves must be completed by <%= @endDate.to_s %></h5>
+		<center><h5>Your solves must be completed by Sunday, <%= @dueDateString %>, 11:59 PM PST</h5></center>
 	</div>
 	</div>
 </div>

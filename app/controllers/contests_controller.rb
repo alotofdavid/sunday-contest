@@ -1,9 +1,11 @@
+require 'date'
 class ContestsController < ApplicationController
 	def index
 		@currentCompetition = Contest.last
 		@endDate = @currentCompetition.end_date
 		@eventArray = @currentCompetition.events.sort_by{|word| word}##
 		@featuredEvent = @currentCompetition.featured_event
+		@dueDateString = date_of_next("sunday")
 	end
 	def show
 		@eventName = Event.find(params[:id]).event_name
@@ -29,4 +31,9 @@ class ContestsController < ApplicationController
 		newSubmission.save()
 		redirect_to "/contests"		
 	end
+	def date_of_next(day)
+  	date  = Date.parse(day)
+  	delta = date > Date.today ? 0 : 7
+  	(date + delta).strftime("%B %d, %Y")
+end
 end
