@@ -21,7 +21,7 @@
 					<div class="panel-heading">
 			    	<h3 class="panel-title"><%= event.event_name %> (Completed) <i class="fa fa-check"></i> </h3>
 				<% end %>
-				<% else %>
+			<% else %>
 				<div class="panel panel-warning">
 				<div class="panel-heading">
 			    <h3 class="panel-title"><%= event.event_name %> <i class="fa fa-angle-double-right"></i></h3>
@@ -40,7 +40,6 @@
 			    				 <font size = "1pt"><%= User.find(s.user_id).login%> •</font>
 			    			<% end %>
 			    		</div>
-			    	
 			    </ul>
 			  </div>
 			</div>	
@@ -48,7 +47,7 @@
 				<% if shouldShowButton  then %>
 					</a>
 				<% end %>
-				
+
 				<% counter += 1 %>	
 			<% end %>
 		

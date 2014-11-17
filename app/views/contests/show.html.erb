@@ -45,7 +45,7 @@
   </tr>
   <tr>
    <td colspan="3">
-    <span id="scramble" style="font-size: 16px;">&nbsp; </span><span id="getlast" hidden = true onclick="getlastscramble()" class="a">get last scramble</span>
+    <font face="Arial"><span id="scramble" style="font-size: 16px;">&nbsp; </span></font><span id="getlast" hidden = true onclick="getlastscramble()" class="a">get last scramble</span>
     <span id="debug"></span>
    </td>
   </tr>
@@ -53,13 +53,13 @@
    <td align="center">
     <span id="showOpt" onclick="toggleOptions()" class="a">show</span> timer options<br>
     <span id="theTime" style="font-family: sans-serif; font-weight: bold; font-size: 2em; ">ready</span><br>
-    that time was: <span onclick="changeNotes(0);" class="a">no penalty</span> <span onclick="changeNotes(2);" class="a">+2</span> <span onclick="changeNotes(1);" class="a">DNF</span> | <span onclick="comment();" class="a">leave comment</span>
+    that time was: <span onclick="changeNotes(0);" class="a">no penalty</span> | <span onclick="changeNotes(2);" class="a">+2</span> | <span onclick="changeNotes(1);" class="a">DNF</span> <span hidden = true onclick="comment();" class="a">leave comment</span>
    </td>
    <td style="width: 15em;">
-    <div id="theList" style="overflow-y: scroll; height: 16em;"></div>
+    <div id="theList" style="height: 16em;"></div>
    </td>
    <td style="width: 15em;">
-    <div id="stats" style="overflow-y: scroll; height: 16em;"></div>
+    <div id="stats" style="height: 16em;"></div>
    </td>
   </tr>
   <tr id="options" style="display: none;"><td colspan="3">
