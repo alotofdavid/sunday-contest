@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-
+ADMIN_EMAILS= ['westonm1@stanford.edu', 'dadams@berkeley.edu']
   ### Popular gems integration
 
   ## == Devise ==
@@ -31,4 +31,14 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.current_user_method { session[:currentUserID] } # auto-generated
+  config.authenticate_with {} # leave it to authorize
+  config.authorize_with do
+    is_admin= ADMIN_EMAILS.include?(User.find(session[:currentUserID]).email) 
+        if session[:currentUserID]
+            redirect_to "./" unless is_admin 
+        end
+
+  end      
 end
+

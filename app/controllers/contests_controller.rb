@@ -35,5 +35,5 @@ class ContestsController < ApplicationController
   	date  = Date.parse(day)
   	delta = date > Date.today ? 0 : 7
   	(date + delta).strftime("%B %d, %Y")
-end
+	end
 end
