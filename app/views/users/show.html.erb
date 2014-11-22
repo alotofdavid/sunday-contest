@@ -15,129 +15,116 @@
 <table class="table table-striped table-condensed table-hover">
 		<tr> 
 		<th>Event</th>
-		<th>Site Rank</th>
-		<th>Elo</th>
-		<th>Best Average</th>
+		<th><center>Elo</center></th>
+		<th><center>Best Average</center></th>
 		</tr>
 	    <tr>
 	    	<td>2x2 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_2x2 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_2x2%></td>
+	    	<td><center><%= @user.ELO_2x2%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["2x2"] %></center></td>
 	    </tr>
 	     <tr>
 	    	<td>3x3 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_3x3 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_3x3%></td>
+	    	<td><center><%= @user.ELO_3x3%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["3x3"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>4x4 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_4x4 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_4x4%></td>
+	    	<td><center><%= @user.ELO_4x4%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["4x4"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>5x5 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_5x5 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_5x5%></td>
+	    	<td><center><%= @user.ELO_5x5%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["5x5"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>6x6 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_6x6 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_6x6%></td>
+	    	<td><center><%= @user.ELO_6x6%></center><center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["6x6"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>6x6 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_7x7 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_7x7%></td>
+	    	<td><center><%= @user.ELO_7x7%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["7x7"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>3x3 One Handed</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_3x3OH == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_3X3OH%></td>
+	    	<td><center><%= @user.ELO_3X3OH%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["3x3 OH"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>Pyraminx Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_Pyraminx == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
 	    	<td><%= @user.ELO_Pyraminx%></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["Pyraminx"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>Megaminx Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_Megaminx == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_Megaminx%></td>
+	    	<td><center><%= @user.ELO_Megaminx%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["Megaminx"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>Square-1 Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_Square1 == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_Square1%></td>
+	    	<td><center><%= @user.ELO_Square1%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["Square-1"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>Skewb Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_Skewb == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_Skewb%></td>
+	    	<td><center><%= @user.ELO_Skewb%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["Skewb"] %></center></td>
 	    </tr>
 	    <tr>
 	    	<td>Clock Speedsolve</td> 
-	    	<td>Rank</td>
 	    	<%  if @user.ELO_Clock == 0 then%>
-	    	<td>-</td>
+	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_Clock%></td>
+	    	<td><center><%= @user.ELO_Clock%></center></td>
 	    	<% end %>
-	    	<td>Best Time</td>
+	    	<td><center><%= @PBs["Clock"] %></center></td>
 	    </tr>
 	
 </table>
