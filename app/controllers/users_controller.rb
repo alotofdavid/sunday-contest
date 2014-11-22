@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 			end
 		end	
 		if(bestTime != nil) then
-			return bestTime.to_s
+			return ('%.2f' % bestTime).to_s# always show 2 decimal places
 		end
 		return "-"
 	end

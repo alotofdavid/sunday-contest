@@ -35,7 +35,7 @@
 				<td><%= counter %></td>
 				<td> <%= link_to(submission.user.login, "/users/#{submission.user.id}") %></td>
 				<td><%= submission.best_time %> </td>
-				<td><%= submission.result %> </td>
+				<td><%= '%.2f' % submission.result %> </td>
 				<td> <%= submission.time_list %></td>
 				<td><%= getEloForEvent(submission.user.id,event.event_name)%> </td>
 				</tr>
