@@ -91,7 +91,7 @@ task :score => :environment do
 		if randomWinner != nil then
 			mail = Mail.new do
   				from  'sundaycontest.com@gmail.com'
- 				to       'badbus@gmail.com'#randomWinner.email
+ 				to       randomWinner.email
   				subject  'Congratulations from SundayContest.com!'
   				body     'Congratulations on winning a $5.00 gift card code from SpeedCubeShop.com. You should be recieving an email from them containing the code shortly.
   				
@@ -113,7 +113,7 @@ task :score => :environment do
 		if randomWinnerId != nil then
 			mail = Mail.new do
   				from  'sundaycontest.com@gmail.com'
- 				to       'badbus@gmail.com'#later speedcubeshop@gmail.com
+ 				to       later speedcubeshop@gmail.com
   				subject  'This week\'s SundayContest.com winners'
   				body     'The winners for this week are ' + winner.email + ' and ' + randomWinner.email + '. Thanks Cameron. <3'
 
