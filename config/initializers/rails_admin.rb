@@ -35,6 +35,7 @@ ADMIN_EMAILS= ['westonm1@stanford.edu', 'dadams@berkeley.edu']
   config.authenticate_with {} # leave it to authorize
   config.authorize_with do
     is_admin= ADMIN_EMAILS.include?(User.find(session[:currentUserID]).email) 
+    #is_admin = (User.find(session[:currentUserID])).isAdmin    
         if session[:currentUserID]
             redirect_to "./" unless is_admin 
         end

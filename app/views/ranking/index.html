@@ -22,13 +22,14 @@
 	<th>Name</th>
 	</tr>
 <% @all_users.each do |userName| %>
-<tr>
-<td><%= counter.to_s + ". " %> </td>
-<td><%= @eloHash[userName.id] %></td>
-<td> <%= link_to "#{userName.login}", "/users/#{userName.id}" %></tr>
-</tr>
-</li>
-<% counter += 1 %>
+    <% if @eloHash[userName.id] != 0%>
+        <tr>
+        <td><%= counter.to_s + ". " %> </td>
+        <td><%= @eloHash[userName.id] %></td>
+        <td> <%= link_to "#{userName.login}", "/users/#{userName.id}" %></tr>
+        </tr>
+        <% counter += 1 %>
+        <% end %>
 <% end %>
 </table>
 

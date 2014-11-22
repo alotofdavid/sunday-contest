@@ -22,67 +22,121 @@
 	    <tr>
 	    	<td>2x2 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_2x2 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_2x2%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	     <tr>
 	    	<td>3x3 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_3x3 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_3x3%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>4x4 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_4x4 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_4x4%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>5x5 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_5x5 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_5x5%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>6x6 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_6x6 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_6x6%></td>
+	    	<% end %>
+	    	<td>Best Time</td>
+	    </tr>
+	    <tr>
+	    	<td>6x6 Speedsolve</td> 
+	    	<td>Rank</td>
+	    	<%  if @user.ELO_7x7 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
+	    	<td><%= @user.ELO_7x7%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>3x3 One Handed</td> 
 	    	<td>Rank</td>
-	    	<td><%= @user.ELO_3x3OH%></td>
+	    	<%  if @user.ELO_3x3OH == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
+	    	<td><%= @user.ELO_3X3OH%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>Pyraminx Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_Pyraminx == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_Pyraminx%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>Megaminx Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_Megaminx == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_Megaminx%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>Square-1 Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_Square1 == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_Square1%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>Skewb Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_Skewb == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_Skewb%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	    <tr>
 	    	<td>Clock Speedsolve</td> 
 	    	<td>Rank</td>
+	    	<%  if @user.ELO_Clock == 0 then%>
+	    	<td>-</td>
+	    	<% else %>
 	    	<td><%= @user.ELO_Clock%></td>
+	    	<% end %>
 	    	<td>Best Time</td>
 	    </tr>
 	

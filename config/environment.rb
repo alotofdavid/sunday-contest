@@ -43,6 +43,9 @@ def getScramble(scrambleType)
 end	
 def calculateNewElo(elo, time, eloTimeArray) 
 	#return 800
+	if elo == 0 then
+		elo = 800
+	end
 	newElo = elo
 	if elo < 2100 then
 		kFactor = 32
@@ -79,7 +82,11 @@ def calculateNewElo(elo, time, eloTimeArray)
 		
 	end	
 	#puts("NEW ELO IS " + newElo.round(0).to_s)
-	return newElo.round(0)
+	result = newElo.round(0)
+	if result < 1 then
+		return 1
+	end	
+	return result
 end
 
 def getEloForEvent(userId,eventName)

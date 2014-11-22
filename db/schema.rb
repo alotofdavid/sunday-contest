@@ -11,29 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110232133) do
+ActiveRecord::Schema.define(version: 20141122030141) do
 
   create_table "account_settings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "announcement", force: true do |t|
+    t.string  "first_line"
+    t.string  "second_line"
+    t.string  "third_line"
+    t.integer "winner_id"
+    t.integer "random_id"
+  end
+
   create_table "announcements", force: true do |t|
-    t.string   "first_line"
-    t.string   "second_line"
-    t.string   "third_line"
-    t.integer  "winner_id"
-    t.integer  "random_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "first_line"
+    t.string  "second_line"
+    t.string  "third_line"
+    t.integer "winner_id"
+    t.integer "random_id"
   end
 
   create_table "contests", force: true do |t|
     t.datetime "end_date"
     t.string   "featured_event"
-    t.string   "featured_event_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "featured_event_name"
   end
 
   create_table "events", force: true do |t|
@@ -82,18 +88,18 @@ ActiveRecord::Schema.define(version: 20141110232133) do
     t.boolean "isMod",           default: false
     t.boolean "isAdmin",         default: false
     t.string  "email"
-    t.integer "ELO_2x2",         default: 800
-    t.integer "ELO_3x3",         default: 800
-    t.integer "ELO_4x4",         default: 800
-    t.integer "ELO_5x5",         default: 800
-    t.integer "ELO_6x6",         default: 800
-    t.integer "ELO_7x7",         default: 800
-    t.integer "ELO_3x3OH",       default: 800
-    t.integer "ELO_Megaminx",    default: 800
-    t.integer "ELO_Pyraminx",    default: 800
-    t.integer "ELO_Square1",     default: 800
-    t.integer "ELO_Clock",       default: 800
-    t.integer "ELO_Skewb",       default: 800
+    t.integer "ELO_2x2",         default: 0
+    t.integer "ELO_3x3",         default: 0
+    t.integer "ELO_4x4",         default: 0
+    t.integer "ELO_5x5",         default: 0
+    t.integer "ELO_6x6",         default: 0
+    t.integer "ELO_7x7",         default: 0
+    t.integer "ELO_3x3OH",       default: 0
+    t.integer "ELO_Megaminx",    default: 0
+    t.integer "ELO_Pyraminx",    default: 0
+    t.integer "ELO_Square1",     default: 0
+    t.integer "ELO_Clock",       default: 0
+    t.integer "ELO_Skewb",       default: 0
   end
 
 end
