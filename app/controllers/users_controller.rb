@@ -50,16 +50,12 @@ class UsersController < ApplicationController
 			render:new	
 		end
 		
-
-
-
-
 	end
 	def getPbForEvent(userId,eventName)
 		allSubmissions = Submission.where("user_id = ?",  userId.to_s)
 		bestTime = nil
 		allSubmissions.each do |sub|
-			if(sub.event.event_name == eventName && (bestTime == nil || sub.result < bestTime)) then
+			if(sub.event.event_name == eventName && (bestTime == nil || sub.result < bestTime) && sub.event.contest != Contest.last) then
 				bestTime = sub.result
 			end
 		end	
