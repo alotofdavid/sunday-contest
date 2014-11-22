@@ -38,7 +38,12 @@ var styleName = "style" + ((a=getCookie("style"))==null?0:a) + ".css";
 // firefox 9.0.1 bugfix
 window.onkeydown = function(event) {checkKey(event.keyCode); };
 window.onkeyup = function(event) {startTimer(event.keyCode); };
-
+window.onbeforeunload = function() {
+  if(finishedAllSolves == false){
+    return "Your times will be deleted if you leave this page. Are you sure?";
+  }
+  
+};
 function setUserId(id){
   userId = id;
 }
