@@ -32,6 +32,18 @@
 
 
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1475559416044636&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 <img class="bg" src="/welcome-splash-blur-gradient.png"> 
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container" id="nav">
@@ -71,9 +83,13 @@
   <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
       <p class="navbar-text pull-center">© 2014 - Made with love by <a href="//davidada.ms">David</a> and <a href="//westonmizumoto.com">Weston</a>.
+      
       </p>
+
     </div>    
+
   </div>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>

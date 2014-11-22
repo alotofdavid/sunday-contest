@@ -1,6 +1,7 @@
 <h3>Account settings for <%= @user.first_name =%> <%= @user.last_name =%></h3>
 
-<h3>Current email: <%= @user.email =%></h3>
+<h3>Current email: <%= @user.email %></h3>
+<h6>Prizes are sent to this email. In order to recieve your prices, this must be a valid email.</h6>
 <%= form_tag("account/post_submit_email", method: "post") do %>
 	<%= label_tag("Change Email:") %>
 	<%= text_field_tag(:email) %>
