@@ -6,6 +6,7 @@ class ArchiveController < ApplicationController
 		
 	end
 	def show
+		@thisContest = Contest.find(params[:id])
 		@allEvents = Contest.find(params[:id]).events
 	end
 end
