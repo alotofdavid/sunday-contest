@@ -3,7 +3,7 @@
 </head>	
 </body>
 <div class="well title">
-<h3><%= @user.login %> - <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i></h3>
+<h3><%= @user.login %></h3>
 <h5><%= @user.first_name =%> <%= @user.last_name =%></h5>
 <% if @user.wca_id != nil &&  @user.wca_id.length > 9 then%>
 <%  urlString = "https://www.worldcubeassociation.org/results/p.php?i=#{@user.wca_id}" %>

@@ -1,5 +1,10 @@
-<div class="well title">
-	<h3>Events for contest #<%=Contest.last.id %>.</h3>
+<div class="well">
+	<% if session[:currentUserID] == nil  then %>
+		<a href="/users/login">Login</a> or <a href="/users/new">Create an Account</a> to compete in this week's competition 
+	<% else %>
+		This week's featured event is <b style="color:orange"><%= Contest.last.featured_event_name %></b><br/>
+		This contest ends Sunday, <%= @dueDateString%> 11:59 PM PST
+	<% end %>
 </div>
 <% if session[:currentUserID] == nil then %>
 	<div class="well"><h5>You must log in to complete your solves </h5></div>

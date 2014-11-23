@@ -2,11 +2,10 @@
 	<div class="col-lg-12">
 		<div class="well">
 			<% if session[:currentUserID] == nil  then %>
-				<a href="/users/login">Login</a> or <a href="/users/new">Create an Account</a> to compete in this week's competition. 
+				<a href="/users/login">Login</a> or <a href="/users/new">Create an Account</a> to compete in this week's competition 
 			<% else %>
-				Compete in this week's competition by clicking the events below </br>
-				This week's featured event is the <%= Contest.last.featured_event_name %> event.<br/>
-				Your solves must be completed by Sunday, <%= @dueDateString%> 11:59 PM PST.
+				This week's featured event is <b style="color:orange"><%= Contest.last.featured_event_name %></b><br/>
+				This contest ends Sunday, <%= @dueDateString%> 11:59 PM PST
 			<% end %>
 		</div>
 	</div>
@@ -15,7 +14,7 @@
 
 
 <div class = "row">
-	<div class="col-lg-7">
+	<div class="col-lg-9">
 	<div class = "well title">
 	<h4>What is the Sunday Contest?</h4>
 	The Sunday Contest is a place where speedcubers can compete against other cubers for a chance to win cool prizes, improve their personal rank, and practice new events. <a href="/about/">Learn more here.</a>
@@ -30,9 +29,9 @@
 </div>
 <% if(Announcement.last != nil) then %>
 	<div class = "row">
-	<div class="col-lg-7">
+	<div class="col-lg-9">
 		<div class="well" style="padding-top:2px">
-		<h4>This week's winners:</h4>
+		<h4>Last week's winners:</h4>
 			<%= Announcement.last.first_line%></br>
 			<%= Announcement.last.second_line%></br>
 			<%= Announcement.last.third_line%></br>
@@ -45,7 +44,7 @@
 		<div class="well" style="padding-top:2px">
 		<h4>Our Sponsors</h4>
 		The prizes for SundayContest.com are generously provided by </br></br>
-		<a href="http://speedcubeshop.com"><img src="http://i.imgur.com/FKe1ien.jpg" title="source: imgur.com" /></a>
+		<a target="_blank" href="http://speedcubeshop.com"><img src="http://i.imgur.com/FKe1ien.jpg" title="source: imgur.com" /></a>
 	</div>
 		</div>
 

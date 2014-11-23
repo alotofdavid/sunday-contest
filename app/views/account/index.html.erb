@@ -1,17 +1,19 @@
-<h3>Account settings for <%= @user.first_name =%> <%= @user.last_name =%></h3>
+<div class="well">Account settings for <%= @user.first_name =%> <%= @user.last_name =%></div>
 
-<h3>Current email: <%= @user.email %></h3>
+<div class="well"><b>Current email:</b> <%= @user.email %>
 <h6>Prizes are sent to this email. In order to recieve your prices, this must be a valid email.</h6>
 <%= form_tag("account/post_submit_email", method: "post") do %>
 	<%= label_tag("Change Email:") %>
-	<%= text_field_tag(:email) %>
-	<%= submit_tag("submit") %>
+	<input type="text" id="text_val" name="text_val" placeholder="" class="form-control">
+	<input class="btn btn-success" type="submit" name="commit">
 <% end %>
+</div>
 </br>
-<h3>Current WCA ID: <td><%= @user.wca_id =%></td></h3>
+<div class="well">
+Current WCA ID: <%= @user.wca_id =%>
 <%= form_tag("account/post_submit_WCA", method: "post") do %>
 	<%= label_tag("Change WCA ID:") %>
-	<%= text_field_tag(:wca_id ) %>
-	<%= submit_tag("submit") %>
+	<input type="text" id="text_val" name="text_val" placeholder="" class="form-control">
+	<input class="btn btn-success" type="submit" name="commit">
 <% end %>
-
+</div>
