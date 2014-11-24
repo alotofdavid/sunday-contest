@@ -1,7 +1,7 @@
 
 class WelcomeController < ApplicationController
   def index
-  	@dueDateString = date_of_next("Sunday");
+  	@dueDateString = date_of_next("Saturday");
 
   end
   def date_of_next(day)
