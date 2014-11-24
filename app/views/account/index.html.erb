@@ -4,7 +4,7 @@
 <h6>Prizes are sent to this email. In order to recieve your prices, this must be a valid email.</h6>
 <%= form_tag("account/post_submit_email", method: "post") do %>
 	<%= label_tag("Change Email:") %>
-	<input type="text" id="text_val" name="text_val" placeholder="" class="form-control">
+	<input type="text" id="email" name="email" placeholder="" class="form-control">
 	<input class="btn btn-success" type="submit" name="commit">
 <% end %>
 </div>
@@ -13,7 +13,7 @@
 Current WCA ID: <%= @user.wca_id =%>
 <%= form_tag("account/post_submit_WCA", method: "post") do %>
 	<%= label_tag("Change WCA ID:") %>
-	<input type="text" id="text_val" name="text_val" placeholder="" class="form-control">
+	<input type="text" id="wca_id" name="wca_id" placeholder="" class="form-control">
 	<input class="btn btn-success" type="submit" name="commit">
 <% end %>
 </div>
