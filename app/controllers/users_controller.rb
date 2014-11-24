@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 		@newUser.last_name = params[:lastName]
 		@newUser.login = params[:login]
 		@newUser.wca_id = params[:wca_id]
-		@newUser.email = params[:email]
+		@newUser.email = params[:email].downcase
 		@newUser.password=(params[:passwordBox1][:password1])	
 		if(@newUser.save()) then
 			options = { :address => "smtp.gmail.com",
