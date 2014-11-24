@@ -1,15 +1,49 @@
 <div class="well title">
 	<h3>This is a list of all the competitors for the Sunday Contest</h3>
 </div>
+
+<nav style="margin-top:-20px">
+  <ul class="pagination">
+    <li><a href="/users">All</a></li>
+    <li><a href="/users?sortby=a">A</a></li>
+    <li><a href="/users?sortby=b">B</a></li>
+    <li><a href="/users?sortby=c">C</a></li>
+    <li><a href="/users?sortby=d">D</a></li>
+    <li><a href="/users?sortby=e">E</a></li>
+    <li><a href="/users?sortby=f">F</a></li>
+    <li><a href="/users?sortby=g">G</a></li>
+    <li><a href="/users?sortby=h">H</a></li>
+    <li><a href="/users?sortby=i">I</a></li>
+    <li><a href="/users?sortby=j">J</a></li>
+    <li><a href="/users?sortby=k">K</a></li>
+    <li><a href="/users?sortby=l">L</a></li>
+    <li><a href="/users?sortby=m">M</a></li>
+    <li><a href="/users?sortby=n">N</a></li>
+    <li><a href="/users?sortby=o">O</a></li>
+    <li><a href="/users?sortby=p">P</a></li>
+    <li><a href="/users?sortby=q">Q</a></li>
+    <li><a href="/users?sortby=r">R</a></li>
+    <li><a href="/users?sortby=s">S</a></li>
+    <li><a href="/users?sortby=t">T</a></li>
+    <li><a href="/users?sortby=u">U</a></li>
+    <li><a href="/users?sortby=v">V</a></li>
+    <li><a href="/users?sortby=w">W</a></li>
+    <li><a href="/users?sortby=x">X</a></li>
+    <li><a href="/users?sortby=y">Y</a></li>
+    <li><a href="/users?sortby=s">Z</a></li>
+    <li><a href="/users?sortby=other">Other</a></li>
+  </ul>
+</nav>
 <% counter = 1 %>
 <table class="table table-striped table-condensed table-hover">
 <tr>
-		<td>#</td>
-		<td><b>Username</b></td>
-		<td><b>Full Name</b></td>
-		</tr>
-	    <tr>
+	<td>#</td>
+	<td><b>Username</b></td>
+	<td><b>Full Name</b></td>
+	</tr>
+	<tr>
 	<% @all_users.each do |userName| %>
+		<% if params[:sortby] == nil || (userName.login.downcase).starts_with?(params[:sortby])%>
 	    	<td><%= counter %></td>
 	    	<td>
 	    		<%= link_to "#{userName.login}", "#{userName.id}" %>
@@ -17,8 +51,8 @@
 	    	<td>
 	    		<%= userName.first_name + " " + userName.last_name %>
 	    	</td> 
-
 	    </tr>
 	    <% counter += 1 %>
+	    <% end %>
 	<% end %>
 </table>
