@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
 		@password2 = password2
 	end
 
+
 	def passwordsMatch
 		if @password1 != @password2 then
 			self.errors.add(:Passwords, " do not match.")# lol

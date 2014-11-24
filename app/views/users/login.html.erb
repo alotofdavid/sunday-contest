@@ -2,8 +2,12 @@
 	<%= form_tag("post_login", method: "post") do %>
     <div class="well">
       Log In
-    </div>
     
+     <% if flash.alert %>
+     <br/>
+      <div><%= flash.alert %></div>
+     <% end %>
+    </div>
     <div class="row">
       <!-- Username -->
       <div class="col-sm-2" for="username">

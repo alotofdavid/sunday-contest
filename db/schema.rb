@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122030141) do
+ActiveRecord::Schema.define(version: 20141124073208) do
 
   create_table "account_settings", force: true do |t|
     t.datetime "created_at"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20141122030141) do
     t.integer "ELO_Square1",     default: 0
     t.integer "ELO_Clock",       default: 0
     t.integer "ELO_Skewb",       default: 0
+    t.boolean "email_confirmed", default: false
   end
 
 end

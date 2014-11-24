@@ -1,7 +1,11 @@
 <% if session[:currentUserID] == nil then %>
 	<%= form_tag("post_login", method: "post") do %>
 		<div class="well">
-			Log In: <span style="color:red">Invalid login credentials. Please try again.</span> 
+    <% if @needToConfirmEmail == true then %>
+      Log In Error: <span style="color:red">You need to confirm your email. Emails may take up to 10 minutes to send. <%= link_to("Click here to resend the email", "/users/resend?userID=" + @userID.to_s) %></span> 
+    <% else %>
+			Log In Error: <span style="color:red">Invalid login credentials. Please try again.</span> 
+      <% end %> 
 		</div>
 		
     <div class="row">
@@ -11,7 +15,6 @@
         <input type="text" id="text_val" name="text_val" placeholder="" class="form-control">
       </div>
     </div>
- 
     <div class="row">
       <!-- Password-->
       <div class="col-sm-2" for="password"><div class="well well-sm center">Password</div></div>

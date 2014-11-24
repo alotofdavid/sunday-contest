@@ -24,10 +24,19 @@ class UsersController < ApplicationController
 	end
 
 	def post_login()
+		@needToConfirmEmail = false;
 		username = User.find_by_login(params[:text_val])
+		if username == nil then
+			return
+		end
+		if username.email_confirmed == false then
+			@needToConfirmEmail = true
+			@userID = username.id
+			return
+		end
 		if username != nil && username.password_valid?(params[:passwordBox][:password]) then
 			session[:currentUserID] = username.id
-			redirect_to "/users/#{username.id}"		
+			redirect_to "/users/#{username.id}"	
 		end	
 	end
 	def new()
@@ -43,8 +52,29 @@ class UsersController < ApplicationController
 		@newUser.login = params[:login]
 		@newUser.wca_id = params[:wca_id]
 		@newUser.email = params[:email]
-		@newUser.password=(params[:passwordBox1][:password1])
-		if(@newUser.save()) then		
+		@newUser.password=(params[:passwordBox1][:password1])	
+		if(@newUser.save()) then
+			options = { :address => "smtp.gmail.com",
+            :port                 => 587,
+            :domain               => 'sundaycontest.com',
+            :user_name            => 'sundaycontest.com',
+            :password             => 'stupidlittlebitchiaintfuckinwithyou',
+            :authentication       => 'plain',
+            :enable_starttls_auto => true  }
+			Mail.defaults do
+  				delivery_method :smtp, options
+			end
+			emailString = @newUser.email#have to do this for scoping issues
+			saltString = @newUser.salt
+			mail = Mail.new do
+  				from  'sundaycontest.com@gmail.com'
+ 				to       emailString
+  				subject  'Welcome to SundayContest.com!'
+  				body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
+  				http://sundaycontest.com/confirm?id=' + saltString
+			end
+			mail.deliver!
+			flash.alert = "A confirmation email has been sent to " + emailString + ". Please note that emails may take up to 10 minutes to send."
 			redirect_to "/users/login"
 		else
 			render:new	
@@ -63,6 +93,32 @@ class UsersController < ApplicationController
 			return ('%.2f' % bestTime).to_s# always show 2 decimal places
 		end
 		return "-"
+	end
+
+	def resend()
+		@User = User.find(params[:userID])
+		options = { :address => "smtp.gmail.com",
+           :port                 => 587,
+           :domain               => 'sundaycontest.com',
+           :user_name            => 'sundaycontest.com',
+           :password             => 'stupidlittlebitchiaintfuckinwithyou',
+           :authentication       => 'plain',
+           :enable_starttls_auto => true  }
+		Mail.defaults do
+  			delivery_method :smtp, options
+		end
+		emailString = @User.email#have to do this for scoping issues
+		saltString = @User.salt
+		mail = Mail.new do
+  			from  'sundaycontest.com@gmail.com'
+ 			to       emailString
+  			subject  'Welcome to SundayContest.com!'
+  			body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
+  			http://sundaycontest.com/confirm?id=' + saltString
+		end
+		mail.deliver!
+		flash.alert = "A confirmation email has been sent to " + emailString + ". Please note that emails may take up to 10 minutes to send."
+		redirect_to "/users/login"
 	end
 	
 	

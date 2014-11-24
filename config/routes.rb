@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get :login, on: :collection
     #switch this to post instead of get
     get :logout, on: :collection
+    get :resend, on: :collection
   end
   resources :contests do
     post :post_submit, on: :collection
@@ -24,4 +25,5 @@ Rails.application.routes.draw do
     post :post_submit_email, on: :collection
   end
  resources :about
+ resources :confirm
 end
