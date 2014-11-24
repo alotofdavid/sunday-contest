@@ -29,7 +29,7 @@ class ContestsController < ApplicationController
 		newSubmission.result = params[:result]
 		newSubmission.best_time = params[:best_time]
 		newSubmission.save()
-		redirect_to "/index"		
+		redirect_to "/"		
 	end
 	def date_of_next(day)
   	date  = Date.parse(day)
