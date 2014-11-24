@@ -37,7 +37,9 @@
 							<font size = "1pt">•</font>
 						<%end %>
 			    			<% event.submissions.each do |s|%>
+			    				<% if s.user_id != nil%>
 			    				 <font size = "1pt"><%= User.find(s.user_id).login%> •</font>
+			    				 <% end %>
 			    			<% end %>
 			    		</div>
 			    </ul>
