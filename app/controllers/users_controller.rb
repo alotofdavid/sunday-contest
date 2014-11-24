@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		#@all_users = User.all
 		#@memberships.sort_by!{ |m| m.group.name.downcase }
 		@all_users = User.all.sort { |a,b|
-			a.login <=> b.login
+			a.login.downcase <=> b.login.downcase
 		}
 	end	
 	def show()
