@@ -82,11 +82,11 @@
 	    	<td><center><%= @PBs["3x3 OH"] %></center></td>
 	    </tr>
 	    <tr>
-	    	<td>Pyraminx Speedsolve</td> 
+	    	<td>Pyraminx</td> 
 	    	<%  if @user.ELO_Pyraminx == 0 then%>
 	    	<td><center>-</center></td>
 	    	<% else %>
-	    	<td><%= @user.ELO_Pyraminx%></td>
+	    	<td><center><%= @user.ELO_Pyraminx%></center></td>
 	    	<% end %>
 	    	<td><center><%= @PBs["Pyraminx"] %></center></td>
 	    </tr>
