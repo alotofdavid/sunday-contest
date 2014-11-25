@@ -122,7 +122,7 @@ function initialize(lookForTimes, checkQueryString) {
  clearHighlight();
  if (timerStatus != 0) {clearInterval(timerID); clearInterval(inspectionID);}
  timerStatus = 3;
-
+ 
  timerupdate = (a=getCookie("timerupdate"))===null ? 1 : a;
  document.getElementById('toggler').innerHTML =
   (timerupdate==0) ? "off" :
@@ -569,7 +569,7 @@ function toggleInput() {
  //setCookie("manualEnter", manualEnter);
  document.getElementById('inputTimes').innerHTML = (manualEnter==1) ? "typing" : "timer";
  document.getElementById('theTime').innerHTML = (manualEnter==1) ?
-  "<input id='timeEntry' size=12 style='font-size:100%'>"+
+  "<font color = black><input id='timeEntry' size=12 style='font-size:100%'></font>"+
   " <span onclick='stopTimer(13);' class='a' style='color:"+
   parseColor(document.getElementById('lcol').value)+"'>enter</span>" : "ready";
 }
