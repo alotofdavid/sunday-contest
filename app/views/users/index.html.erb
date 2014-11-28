@@ -46,7 +46,7 @@
 		<% if params[:sortby] == nil || (userName.login.downcase).starts_with?(params[:sortby])%>
 	    	<td><%= counter %></td>
 	    	<td>
-	    		<%= link_to "#{userName.login}", "http://sundaycontest.com/users/#{userName.id}" %>
+	    		<%= link_to "#{userName.login}", "/users/#{userName.id}" %>
 	    	</td> 
 	    	<td>
 	    		<%= userName.first_name + " " + userName.last_name %>

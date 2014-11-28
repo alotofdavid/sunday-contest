@@ -84,13 +84,15 @@ class UsersController < ApplicationController
 	def getPbForEvent(userId,eventName)
 		allSubmissions = Submission.where("user_id = ?",  userId.to_s)
 		bestTime = nil
+		bestTimeString = ""
 		allSubmissions.each do |sub|
 			if(sub.event.event_name == eventName && (bestTime == nil || sub.result < bestTime) && sub.event.contest != Contest.last) then
-				bestTime = sub.result
+				bestTime = sub.result_millis
+				bestTimeString = sub.result_string
 			end
 		end	
 		if(bestTime != nil) then
-			return ('%.2f' % bestTime).to_s# always show 2 decimal places
+			return bestTimeString# always show 2 decimal places
 		end
 		return "-"
 	end

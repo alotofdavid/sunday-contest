@@ -27,6 +27,7 @@ var userId = -1;
 var eventId = -1;
 var endingAverage = -1;
 var best_time = "";
+var endingAverageMillis = -1;
 
 
 // #################### TIMER STUFF ####################
@@ -62,8 +63,7 @@ function submitButtonHandler(){
       for (var i = 0; i < times.length; i++){
         timeStrings.push(pretty(times[i]));
       }
-      
-      post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage, best_time :best_time});
+      post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage,resultMillis :endingAverageMillis, best_time :best_time});
     }
    
 function post(path, params, method) {
@@ -1083,7 +1083,12 @@ function getAvg(start, nsolves) {
  }
  var avg = (sum - best - worst) / (nsolves - 2);
  best_time = pretty(best);
+ //alert("average is " + avg)
  endingAverage = pretty(avg);
+ //alert(endingAverage)/////////////////////
+ /////////////////////////////////////////
+ /////////////////////////////////////////
+ endingAverageMillis = avg;
  return [((numdnf < 2) ? avg : -1), bestindex, worstindex];
 }
 

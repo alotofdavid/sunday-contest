@@ -34,7 +34,7 @@ task :score => :environment do
 		end	
 		if(contest.featured_event_name == event.event_name) then
 			sortedSubmissions = event.submissions.sort { |a,b|
-				a.result <=> b.result
+				a.result_millis <=> b.result_millis
 			}
 			if(sortedSubmissions[0] != nil) then
 				featuredEventWinnerId = sortedSubmissions[0].user_id
@@ -49,7 +49,7 @@ task :score => :environment do
 		size = featuredEvent.submissions.length
 		if(size > 1) then
 			sortedSub = featuredEvent.submissions.sort { |a,b|
-				a.result <=> b.result
+				a.result_millis <=> b.result_millis
 			}
 			secondChoiceSubmission = sortedSub[size - 1]
 			randomWinnerId = secondChoiceSubmission.user_id
@@ -99,7 +99,7 @@ task :score => :environment do
 			end
 			mail.deliver!
 		end
-		if featuredEventWinnerId != nil then
+		if User.find(featuredEventWinnerId) != nil then
 			mail = Mail.new do
   				from  'sundaycontest.com@gmail.com'
  				to       winner.email

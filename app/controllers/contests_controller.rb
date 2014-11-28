@@ -26,7 +26,9 @@ class ContestsController < ApplicationController
 		newSubmission.contest_id = Contest.last.id
 		newSubmission.event_id = params[:eventId]
 		newSubmission.time_list = params[:dataArray].to_s
-		newSubmission.result = params[:result]
+		newSubmission.result = params[:result]#This is unused as of 11/28/14, replaced by next two lines
+		newSubmission.result_string = params[:result]#string
+		newSubmission.result_millis = params[:resultMillis]#int
 		newSubmission.best_time = params[:best_time]
 		newSubmission.save()
 		redirect_to "/"		
