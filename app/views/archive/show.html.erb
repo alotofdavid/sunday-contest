@@ -18,7 +18,7 @@
 	</div>
 		<% @sortedSubmissions = Array.new %>
 		<% @sortedSubmissions = event.submissions.sort_by { |res|
-				[res.result_millis,res.best_time]
+				[res.result_millis.to_s + "omghacks" + res.best_time]
 			} %>
 		<table class="table table-striped table-hover table-condensed">
 			<tr>
