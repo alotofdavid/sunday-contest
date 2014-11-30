@@ -21,7 +21,7 @@ task :score => :environment do
 			if elo == 0 then
 				elo = 800
 			end
-			entry = eloBlock.new(elo,sub.result)
+			entry = eloBlock.new(elo,sub.result_millis)
 			eloTimeArray << entry
 		end	
 		event.submissions.each do |submiss|
