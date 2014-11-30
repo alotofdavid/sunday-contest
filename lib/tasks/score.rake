@@ -21,11 +21,11 @@ task :score => :environment do
 			if elo == 0 then
 				elo = 800
 			end
-			entry = eloBlock.new(elo,sub.result)
+			entry = eloBlock.new(elo,sub.result_millis)
 			eloTimeArray << entry
 		end	
 		event.submissions.each do |submiss|
-			newElo = calculateNewElo(getEloForEvent(submiss.user_id,eventName),submiss.result,eloTimeArray)
+			newElo = calculateNewElo(getEloForEvent(submiss.user_id,eventName),submiss.result_millis,eloTimeArray)
 			setEloForEvent(submiss.user_id,eventName,newElo)
 			if(counter == randomWinnerNumber) then
 				randomWinnerId = submiss.user_id
