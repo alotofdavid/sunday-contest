@@ -44,17 +44,17 @@ end
 def calculateNewElo(elo, time, eloTimeArray) 
 	#return 800
 	if elo == 0 then
-		elo = 800
+		elo = 1200
 	end
 	newElo = elo
 	if elo < 2100 then
-		kFactor = 32
-	end
-	if elo >= 2100 && elo < 2400 then
 		kFactor = 24
 	end
-	if elo >= 2400 then
+	if elo >= 2100 && elo < 2400 then
 		kFactor = 16
+	end
+	if elo >= 2400 then
+		kFactor = 8
 	end	
 	#### We can come up with some algorithm to adjust these kFactors
 	#### Bigger kfactor means bigger change with each competition
@@ -83,8 +83,8 @@ def calculateNewElo(elo, time, eloTimeArray)
 	end	
 	#puts("NEW ELO IS " + newElo.round(0).to_s)
 	result = newElo.round(0)
-	if result < 1 then
-		return 1
+	if result < 200 then
+		return 200
 	end	
 	return result
 end
