@@ -55,25 +55,31 @@ class UsersController < ApplicationController
 		@newUser.password=(params[:passwordBox1][:password1])	
 		if(@newUser.save()) then
 			options = { :address => "smtp.gmail.com",
-            :port                 => 587,
-            :domain               => 'sundaycontest.com',
-            :user_name            => 'sundaycontest.com',
-            :password             => 'stupidlittlebitchiaintfuckinwithyou',
-            :authentication       => 'plain',
-            :enable_starttls_auto => true  }
+           :port                 => 587,
+           :domain               => 'sundaycontest.com',
+           :user_name            => 'sundaycontestinfo',
+           :password             => 'stupidlittlebitchiaintfuckinwithyou',
+           :authentication       => 'plain',
+           :enable_starttls_auto => true  }
 			Mail.defaults do
   				delivery_method :smtp, options
 			end
 			emailString = @newUser.email#have to do this for scoping issues
 			saltString = @newUser.salt
+			
+
 			mail = Mail.new do
-  				from  'sundaycontest.com@gmail.com'
+  				from  'sundaycontestinfo@gmail.com'
  				to       emailString
   				subject  'Welcome to SundayContest.com!'
   				body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
-  				http://sundaycontest.com/confirm?id=' + saltString
+  				http://sundaycontest.com/confirm?id=' + saltString 
 			end
 			mail.deliver!
+			
+
+
+
 			flash.alert = "A confirmation email has been sent to " + emailString + ". Please note that emails may take up to 10 minutes to send."
 			redirect_to "/users/login"
 		else
@@ -102,7 +108,7 @@ class UsersController < ApplicationController
 		options = { :address => "smtp.gmail.com",
            :port                 => 587,
            :domain               => 'sundaycontest.com',
-           :user_name            => 'sundaycontest.com',
+           :user_name            => 'sundaycontestinfo',
            :password             => 'stupidlittlebitchiaintfuckinwithyou',
            :authentication       => 'plain',
            :enable_starttls_auto => true  }
@@ -112,7 +118,7 @@ class UsersController < ApplicationController
 		emailString = @User.email#have to do this for scoping issues
 		saltString = @User.salt
 		mail = Mail.new do
-  			from  'sundaycontest.com@gmail.com'
+  			from  'sundaycontestinfo@gmail.com'
  			to       emailString
   			subject  'Welcome to SundayContest.com!'
   			body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
