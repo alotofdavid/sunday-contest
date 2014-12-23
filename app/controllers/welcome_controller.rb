@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   def index
   	@dueDateString = date_of_next("Saturday");
   	@numUsers = User.all.count
-  	@numDollarsAwarded = Contest.all.count * 10
+  	@numDollarsAwarded = (Contest.all.count - 1) * 10
   end
   def date_of_next(day)
   	date  = Date.parse(day)
