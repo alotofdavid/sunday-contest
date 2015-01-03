@@ -61,7 +61,11 @@ function showSubmitButton(){
 function submitButtonHandler(){
     timeStrings = [];
       for (var i = 0; i < times.length; i++){
-        timeStrings.push(pretty(times[i]));
+        if (notes[i] == 1) {
+          timeStrings.push("DNF");
+        } else {
+          timeStrings.push(pretty(times[i]));
+        }
       }
       post("/contests/post_submit",{dataArray :timeStrings,currentUserID :userId, eventId :eventId, result :endingAverage,resultMillis :endingAverageMillis, best_time :best_time});
     }
