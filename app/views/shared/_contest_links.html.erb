@@ -59,11 +59,13 @@
 <script>
 function toggle(id){
 	if(document.getElementById(id).hidden == true){
-		document.getElementById(id).hidden = false
+		document.getElementById(id).hidden = false;
+		delta = function(p) {return p}
 	}else{
 		document.getElementById(id).hidden = true
 	}
 
 }
+
 
 </script>

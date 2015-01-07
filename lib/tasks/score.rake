@@ -4,6 +4,13 @@ task :score => :environment do
 	contest = Contest.last
 	totalSubmissionNum = 0
 	contest.events.each do |e|
+		# e.submissions.each do |s|
+		# 	if s.result == "DNF" then
+		# 		s.destroy
+		# 	else
+		# 		totalSubmissionNum = totalSubmissionNum + 1
+		#	end
+		#end
 		totalSubmissionNum += e.submissions.length
 	end
 	randomWinnerNumber = rand(0..totalSubmissionNum-1)
