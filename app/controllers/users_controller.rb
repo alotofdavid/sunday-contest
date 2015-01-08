@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 			options = { :address => "smtp.gmail.com",
            :port                 => 587,
            :domain               => 'sundaycontest.com',
-           :user_name            => 'sundaycontestinfo',
+           :user_name            => 'sundaycontest.com',
            :password             => 'stupidlittlebitchiaintfuckinwithyou',
            :authentication       => 'plain',
            :enable_starttls_auto => true  }
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 			
 
 			mail = Mail.new do
-  				from  'sundaycontestinfo@gmail.com'
+  				from  'sundaycontest.com@gmail.com'
  				to       emailString
   				subject  'Welcome to SundayContest.com!'
   				body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
@@ -108,7 +108,7 @@ class UsersController < ApplicationController
 		options = { :address => "smtp.gmail.com",
            :port                 => 587,
            :domain               => 'sundaycontest.com',
-           :user_name            => 'sundaycontestinfo',
+           :user_name            => 'sundaycontest.com',
            :password             => 'stupidlittlebitchiaintfuckinwithyou',
            :authentication       => 'plain',
            :enable_starttls_auto => true  }
@@ -118,7 +118,7 @@ class UsersController < ApplicationController
 		emailString = @User.email#have to do this for scoping issues
 		saltString = @User.salt
 		mail = Mail.new do
-  			from  'sundaycontestinfo@gmail.com'
+  			from  'sundaycontest.com@gmail.com'
  			to       emailString
   			subject  'Welcome to SundayContest.com!'
   			body     'Thank you for registering at SundayContest.com! Please click on this link to complete your registration. 
