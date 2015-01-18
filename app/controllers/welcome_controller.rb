@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     Contest.last.events.each do |event|
       @numSubmissions = @numSubmissions + event.submissions.count
     end
+    
 
   end
   def date_of_next(day)

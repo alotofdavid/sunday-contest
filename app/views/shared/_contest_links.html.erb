@@ -36,7 +36,8 @@
 							
 							<font size = "1pt">•</font>
 						<%end %>
-			    			<% event.submissions.each do |s|%>
+			    			<% event.submissions.sample(30).each do |s|%>
+			    				30 recent submissions:</br>
 			    				<% if s.user_id != nil%>
 			    				 <font size = "1pt"><%= User.find(s.user_id).login%> •</font>
 			    				 <% end %>
