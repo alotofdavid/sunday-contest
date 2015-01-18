@@ -2,13 +2,21 @@
 <table class="table table-striped table-hover ">
 	<tbody>
 	<% @allContests.each do |contest| %>
-	<% if contest != Contest.last%>
-	    <tr>
-	      <td>
-		<%= link_to("Results for the contest on the week of #{ contest.created_at.strftime("%B %d, %Y")}","/archive/#{contest.id}") %>
-	      </td>
-	    </tr>
-	<% end %>
+		<% if contest != Contest.last%>
+	    	<tr>
+	     	 <td>
+			<%= link_to("Results for the contest on the week of #{ contest.created_at.strftime("%B %d, %Y")}","/archive/#{contest.id}") %>
+	      	</td>
+	    	</tr>
+		<% end %>
+		<% if contest == Contest.last && @user != nil && @user.isMod == true then%>
+			<tr>
+	     	 <td>
+			<%= link_to("Results for the contest on the week of #{ contest.created_at.strftime("%B %d, %Y")}","/archive/#{contest.id}") %>
+			&nbsp;&nbsp;&nbsp;&nbsp;CURRENT COMPETITION: VISIBLE TO MODS ONLY.
+			</td>
+	    	</tr>
+		<% end %>
 	<% end %>
 	</tbody>
 </table>

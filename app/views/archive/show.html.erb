@@ -9,7 +9,7 @@
 	</div>
 <% end %>
 </div>
-<% if (@thisContest == Contest.last) then%>
+<% if (@thisContest == Contest.last && @user != nil && @user.isMod == false) then%>
 	<h3> You may not view the results of this contest yet.</h3>
 <% else %>
 <% @allEvents.each do |event| %>
@@ -28,6 +28,9 @@
 				<th>Average</th>
 				<th>Times</th>
 				<th>Elo</th>
+				<% if @user != nil && @user.isMod == true then%>
+					<th>Mod Only</th>
+				<% end %>
 			</tr>
 			<% counter = 1%>
 			<% for submission in @sortedSubmissions do %>
@@ -38,6 +41,12 @@
 				<td><%= submission.result_string %> </td>
 				<td> <%= submission.time_list %></td>
 				<td><%= getEloForEvent(submission.user.id,event.event_name)%> </td>
+				<% if @user != nil && @user.isMod == true then%>
+					<td><a href = "/archive/new?id=<%=submission.id%>">Delete Result</a></td>
+				<% end %>
+
+
+
 				</tr>
 				<% counter += 1 %>
 			<% end %>	
