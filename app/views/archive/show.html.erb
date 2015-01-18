@@ -9,7 +9,7 @@
 	</div>
 <% end %>
 </div>
-<% if (@thisContest == Contest.last && @user != nil && @user.isMod == false) then%>
+<% if (@thisContest == Contest.last && (@user == nil || @user.isMod == false)) then%>
 	<h3> You may not view the results of this contest yet.</h3>
 <% else %>
 <% @allEvents.each do |event| %>
