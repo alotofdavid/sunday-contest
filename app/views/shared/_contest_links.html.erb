@@ -35,12 +35,15 @@
 						<% if event.submissions.size != 0  then %>
 							
 							<font size = "1pt">•</font>
-						<%end %>
-			    			<% event.submissions.each do |s|%>
+						<% end %>
+			    			<% event.submissions.first(30).each do |s|%>
 			    				<% if s.user_id != nil%>
 			    				 <font size = "1pt"><%= User.find(s.user_id).login%> •</font>
 			    				 <% end %>
 			    			<% end %>
+						<% if event.submissions.size > 30 then %>
+						       <font size = "1pt">(<%= event.submissions.size %> more)</font>
+						<% end %>
 			    		</div>
 			    </ul>
 			  </div>
