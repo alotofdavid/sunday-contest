@@ -108,7 +108,7 @@ class UsersController < ApplicationController
 		options = { :address => "smtp.gmail.com",
            :port                 => 587,
            :domain               => 'sundaycontest.com',
-           :user_name            => 'registersundaycontest,
+           :user_name            => 'registersundaycontest',
            :password             => 'stupidlittlebitchiaintfuckinwithyou',
            :authentication       => 'plain',
            :enable_starttls_auto => true  }
