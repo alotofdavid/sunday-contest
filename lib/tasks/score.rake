@@ -87,8 +87,8 @@ task :score => :environment do
 		##email the winners here
 		options = { :address              => "smtp.gmail.com",
             :port                 => 587,
-            :domain               => 'sundaycontest.com',
-            :user_name            => 'sundaycontest.com',
+            :domain               => 'sundaycontestprizes',
+            :user_name            => 'sundaycontestprizes',
             :password             => 'stupidlittlebitchiaintfuckinwithyou',
             :authentication       => 'plain',
             :enable_starttls_auto => true  }
@@ -97,7 +97,7 @@ task :score => :environment do
 		end
 		if randomWinner != nil then
 			mail = Mail.new do
-  				from  'sundaycontest.com@gmail.com'
+  				from  'sundaycontestprizes@gmail.com'
  				to       randomWinner.email
   				subject  'Congratulations from SundayContest.com!'
   				body     'Congratulations on winning a $5.00 gift card code from SpeedCubeShop.com. You should be recieving an email from them containing the code shortly.
@@ -108,7 +108,7 @@ task :score => :environment do
 		end
 		if User.find(featuredEventWinnerId) != nil then
 			mail = Mail.new do
-  				from  'sundaycontest.com@gmail.com'
+  				from  'sundaycontestprizes@gmail.com'
  				to       winner.email
   				subject  'Congratulations from SundayContest.com!'
   				body     'Congratulations on winning this week\'s featured event and a $5.00 gift card code from SpeedCubeShop.com. You should be recieving an email from them containing the code shortly.
@@ -119,7 +119,7 @@ task :score => :environment do
 		end
 		if randomWinnerId != nil then
 			mail = Mail.new do
-  				from  'sundaycontest.com@gmail.com'
+  				from  'sundaycontestprizes@gmail.com'
  				to       'service@speedcubeshop.com'
   				subject  'This week\'s SundayContest.com winners'
   				body     'The winners for this week are ' + winner.email + ' and ' + randomWinner.email + '. Thanks Cameron. <3'
