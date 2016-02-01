@@ -2,7 +2,7 @@
 	<div class="col-lg-12">
 		<div class="well">
 		<h4>Welcome to SundayContest.com</h4>
-		<h6><%= @numUsers%> cubers registered, $<%= @numDollarsAwarded %>.00 in <a href = "http://speedcubeshop.com/">SpeedCubeShop.com</a> gift cards awarded.</h6>
+		<h6><%= @numUsers%> cubers registered</h6>
 		<h6><%= @numSubmissions %> entries received for this week's competition.</h6>
 			<% if session[:currentUserID] == nil  then %>
 				<a href="/users/login">Login</a> or <a href="/users/new">Create an Account</a> to compete in this week's competition.
